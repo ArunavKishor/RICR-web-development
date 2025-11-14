@@ -1,0 +1,434 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
+:root {
+  --primary: white;
+  --text: black;
+  --var1: 40px;
+}
+#navbar {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+ 
+  position: fixed;
+  width: 100%;
+  #CompanyName {
+    font-size: medium;
+    color: var(--text);
+  }
+  #NavButton button {
+    color: var(--text);
+    font-size: medium;
+    border: none;
+    padding: 20px;
+  }
+  #InBlock {
+    font-size: medium;
+  }
+  #page,
+  #Account,
+  #Docs {
+    border: none;
+    background-color: var(--primary);
+  }
+  #SignIn {
+    background-color: var(--primary);
+    border: none;
+    color: var(--text);
+    padding: 20px;
+  }
+  #Blocks {
+    background-color: black;
+    color: var(--primary);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+  }
+  #InBlock {
+    justify-content: end;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------- */
+#First {
+  display: flex;
+  padding: 60px;
+  border-radius: 15px;
+  gap: 100px;
+  font-family: "Roboto", sans-serif;
+}
+
+#Welcom {
+  padding: 35px;
+}
+#Welcom1 {
+  font-size: 60px;
+  font-family: "Roboto", sans-serif;
+}
+#emailRequire {
+  display: flex;
+}
+#Welcom2 {
+  font-size: xx-large;
+  opacity: 40%;
+}
+#Youremail {
+  font-size: large;
+}
+#email1 {
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  opacity: 50%;
+}
+#emailRequire {
+  gap: 30px;
+}
+#REQUIRE {
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+#opacityText {
+  opacity: 50%;
+}
+/* --------------------------------- */
+
+#photo {
+  height: 600px;
+  width: 600px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+#MyClint {
+  text-align: center;
+  font-size: large;
+}
+#Logo img {
+  width: 100px;
+  height: 100px;
+}
+#Logo {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin: 0 320px;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */
+#MySkills {
+  text-align: center;
+  #WhatIdo {
+    font-size: xx-large;
+  }
+  #Intro {
+    opacity: 50%;
+  }
+}
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */
+#asd {
+  display: flex;
+  gap: 100px;
+  text-align: center;
+  margin-left: 160px;
+}
+#wer {
+  font-size: x-large;
+}
+#qwe {
+  opacity: 50%;
+}
+
+#zxc {
+  display: flex;
+  gap: 100px;
+  text-align: center;
+  margin-left: 160px;
+}
+#lkj {
+  font-size: x-large;
+}
+#qwe {
+  opacity: 50%;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+#MyProject {
+  text-align: center;
+  #b {
+    font-size: 40px;
+  }
+  #a {
+    opacity: 50%;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+#Div1 {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  #fgh {
+    font-size: 20px;
+  }
+  #mnb {
+    opacity: 50%;
+  }
+}
+#seeDetails {
+  background-color: black;
+  color: var(--primary);
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  opacity: 90%;
+  margin-right: 150px;
+}
+.subDiv {
+  border-radius: 15px;
+  padding: 20px;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+#MyResume {
+  display: flex;
+  gap: 350px;
+  margin-left: 200px;
+  #resume {
+    opacity: 60%;
+  }
+  #resume2 {
+    opacity: 60%;
+  }
+}
+#VIEWMORE {
+  background-color: white;
+  border: none;
+  padding: 10px;
+}
+#VIEWMORE:hover {
+  background-color: lightgray;
+  font-size: 18px;
+  border-radius: 10px;
+}
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+#Clint {
+  text-align: center;
+  #b {
+    font-size: xx-large;
+  }
+  #clint1 {
+    font-size: large;
+    opacity: 50%;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+#MobileApp {
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  #MA {
+    font-size: 30px;
+  }
+  #MS {
+    opacity: 50%;
+  }
+  #MF {
+    opacity: 50%;
+  }
+}
+#Mobilea {
+  margin-left: 110px;
+}
+#poi {
+  display: flex;
+  gap: 10px;
+  border-radius: 10px;
+}
+#SubImage {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 60%;
+}
+#image {
+  #imageA {
+    height: 400px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 420px;
+  }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+#MyClint {
+  opacity: 60%;
+  #Logo1 img {
+    filter: grayscale(100%);
+    width: 100px;
+    height: 100px;
+  }
+  #Logo1 {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 0 320px;
+  }
+  #Trusted {
+    font-size: 30px;
+  }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+#Contact {
+  text-align: center;
+  #us {
+    font-size: 50px;
+  }
+  #Ready {
+    font-size: x-large;
+    opacity: 50%;
+  }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+.contactus {
+  text-align: center;
+  margin-top: 80px;
+}
+.contactus p {
+  text-align: center;
+  color: gray;
+}
+.contact {
+  display: flex;
+  padding-top: 50px;
+  padding-left: 30px;
+  margin: 0 100px;
+  height: 500px;
+
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contactl {
+  width: 50%;
+  height: 400px;
+  background-color: black;
+  border-radius: 5px;
+  color: #f9f9f9;
+  padding-left: 40px;
+  padding-top: 40px;
+  margin-top: 20px;
+}
+.contactR {
+  width: 50%;
+  height: 380px;
+  padding-left: 40px;
+  padding-top: 40px;
+  margin-top: 20px;
+}
+
+.contactR input[type="text"] {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  outline: none;
+  margin: 5px 10px 15px 0;
+  width: 200px;
+}
+
+#spac {
+  padding-left: 12px;
+}
+
+.radio-group {
+  margin-top: 15px;
+}
+
+.radio-group span {
+  margin-right: 15px;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+#fullwith {
+  margin-top: 12;
+  width: 90%;
+}
+#fullwith1 {
+  margin-top: 12;
+  width: 90%;
+}
+#fullwith11 {
+  margin-top: 12px;
+}
+.sendmassage {
+  background-color: black;
+  border-radius: 4px;
+  height: 30px;
+  width: 110px;
+  color: white;
+  float: right;
+  margin-top: 60px;
+  margin-right: 21px;
+}
+#para {
+  opacity: 50%;
+}
+#uyt {
+  font-size: 50px;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+#Footer {
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  align-items: center;
+}
+#footer1 {
+  opacity: 50%;
+}
+#footer2 {
+  border: none;
+  background-color: white;
+  border-radius: none;
+  margin-left: 400px;
+  opacity: 50%;
+}
+#footer3 {
+  border: none;
+  background-color: white;
+  border-radius: none;
+  opacity: 50%;
+}
+#footer4 {
+  border: none;
+  background-color: white;
+  border-radius: none;
+  opacity: 50%;
+}
+#footer5 {
+  border: none;
+  background-color: white;
+  border-radius: none;
+  opacity: 50%;
+}
+#footer6 {
+  border: 1px solid #000;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  height: 30px;
+}

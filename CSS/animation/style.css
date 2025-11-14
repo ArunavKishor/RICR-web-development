@@ -1,0 +1,49 @@
+h1 {
+  border: 1px solid #000;
+  width: 200px;
+  margin-left: 0px;
+  text-align: center;
+}
+h1:hover {
+  margin-left: 200px;
+  transition: 5s;
+  width: 500px;
+  height: 500px;
+  /* text-align: center; */
+}
+#main {
+  border: 1px solid #000;
+  height: 100px;
+  width: 500px;
+  #A2 {
+    height: 100px;
+  }
+}
+#main:hover {
+  /* #A2
+    {
+        width: 5000px;
+        background-color: green;
+        transition: width 5s ease-in-out,background-color 5s ease-in-out;
+    } */
+  #A2 {
+    animation: lodingBar 5s linear;
+  }
+}
+
+@keyframes lodingBar {
+  0% {
+    width: 0%;
+    background-color: red;
+  }
+
+  50% {
+    width: 50%;
+    background-color: orange;
+  }
+
+  100% {
+    width: 100%;
+    background-color: green;
+  }
+}

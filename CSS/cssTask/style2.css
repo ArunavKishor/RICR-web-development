@@ -1,0 +1,37 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+#profile {
+  background: pink;
+  color: white;
+  height: 1000px;
+  width: 25%;
+}
+
+#image {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-top: 35px;
+}
+.mainDiv {
+  display: flex;
+}
+
+#moreInfo {
+  background: wheat;
+  color: black;
+}
+#AboutMe {
+  margin-top: 35px;
+  padding-left: 20px;
+}
+
+#Education {
+  padding-left: 20px;
+}
+#CollageInfo {
+  display: flex;
+}
