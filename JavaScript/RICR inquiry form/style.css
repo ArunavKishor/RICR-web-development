@@ -1,0 +1,181 @@
+#main {
+  background-color: rgb(238, 238, 247);
+  margin-left: 200px;
+  margin-right: 200px;
+}
+#Enquiry
+{
+  text-align: center;
+}
+#form
+{
+  text-align: center;
+}
+#name
+{
+  margin-left: 100px;
+}
+#person
+{
+  margin-left: 100px;
+  border-radius: 10px;
+  width: 400px;
+  border: 1px;
+}
+#Contact
+{
+  /* margin-left: 100px; */
+  border-radius: 10px;
+  width: 400px;
+  border: 1px;
+}
+#number
+{
+  /* margin-left: 100px; */
+  border-radius: 10px;
+  width: 400px;
+  border: 1px;
+}
+#Email
+{
+  margin-left: 100px;
+  border-radius: 10px;
+  width: 400px;
+  border: 1px;
+}
+#email
+{
+  margin-left: 100px;
+  border-radius: 10px;
+  width: 600px;
+  border: 1px;
+}
+#Qualification
+{
+  /* margin-left: 100px; */
+  border-radius: 10px;
+  width: 400px;
+  border: 1px;
+}
+#qualification
+{
+  /* margin-left: 100px; */
+  border-radius: 10px;
+  width: 200px;
+  border: 1px;
+}
+#College
+{
+  margin-left: 100px;
+  /* border-radius: 10px; */
+  width: 600px;
+  border: 1px;
+}
+#collage
+{
+  /* margin-left: 100px; */
+  border-radius: 10px;
+  width: 800px;
+  border: 1px;
+}
+#Year
+{
+   margin-left: 100px;
+  border-radius: 10px;
+  width: 400px;
+  border: 1px;
+}
+#year
+{
+   margin-left: 100px;
+   border-radius: 10px;
+   width: 400px;
+   border: 1px;
+   opacity: 60%;
+}
+#branch
+{
+  /* margin-left: 100px; */
+   border-radius: 10px;
+   width: 400px;
+   border: 1px;
+}
+#Interested
+{
+  margin-left: 100px;
+}
+#Full
+{
+  margin-left: 100px;
+}
+#DataS
+{
+  margin-left: 100px;
+}
+#DataA
+{
+  margin-left: 100px;
+}
+#Business
+{
+  margin-left: 100px;
+}
+#Java
+{
+margin-left: 100px;
+}
+#Python
+{
+margin-left: 100px;
+}
+#C
+{
+margin-left: 100px;
+}
+#Other
+{
+margin-left: 100px;
+}
+#Source
+{
+  margin-left: 32px;
+}
+#t
+{
+  margin-left: 32px;
+}
+#e
+{
+  margin-left: 32px;
+}
+#source
+{
+  margin-left: 32px;
+  border-radius: 10px;
+   width: 400px;
+   border: 1px;
+   opacity: 60%;
+}
+#Executive
+{
+  margin-left: 32px;
+  border-radius: 10px;
+   width: 400px;
+   border: 1px;
+   
+}
+#executive{
+  margin-left: 32px;
+  border-radius: 10px;
+   width: 400px;
+   border: 1px;
+   opacity: 60%;
+}
+#Submmit
+{
+  #submmit
+  {
+    border-radius: 10px;
+  }
+  text-align: center ;
+}
