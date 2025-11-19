@@ -3,14 +3,19 @@ function Login() {
   console.log("Name : " + namee);
   const Contact = document.getElementById("number").value;
   console.log("Contact : " + Contact);
+  document.getElementById("person").value = "";
+  document.getElementById("number").value = "";
   // ----------------------------------------------------------------------------------------------------------
   const Email = document.getElementById("email").value;
   console.log("Email : " + Email);
   const qualification = document.getElementById("qualification").value;
   console.log("qualification : " + qualification);
+  document.getElementById("email").value = "";
+  document.getElementById("qualification").value = "";
   // ------------------------------------------------------------------------------------------------------------
   const CollageName = document.getElementById("collage").value;
   console.log("Collage Name : " + CollageName);
+  document.getElementById("collage").value = "";
   // ------------------------------------------------------------------------------------------------------------
   const Year1 = document.getElementById("2").value;
   console.log("Year : " + Year1);
@@ -26,10 +31,17 @@ function Login() {
   console.log("Year : " + Year6);
   const Branch = document.getElementById("branch").value;
   console.log("Branch : " + Branch);
+  document.getElementById("2").value = "";
+  document.getElementById("3").value = "";
+  document.getElementById("4").value = "";
+  document.getElementById("5").value = "";
+  document.getElementById("6").value = "";
+  document.getElementById("7").value = "";
+  document.getElementById("branch").value = "";
   // ------------------------------------------------------------------------------------------------------------
-const Full = document.getElementById("Full").value;
+  const Full = document.getElementById("Full").value;
   console.log("Cource : " + Full);
-const DataS = document.getElementById("DataS").value;
+  const DataS = document.getElementById("DataS").value;
   console.log("Cource : " + DataS);
   const DataA = document.getElementById("DataA").value;
   console.log("Cource : " + DataA);
@@ -43,20 +55,32 @@ const DataS = document.getElementById("DataS").value;
   console.log("Cource : " + C);
   const Other = document.getElementById("Other").value;
   console.log("Cource : " + Other);
+  document.getElementById("Full").value = "";
+  document.getElementById("DataS").value = "";
+  document.getElementById("DataA").value = "";
+  document.getElementById("Java").value = "";
+  document.getElementById("Python").value = "";
+  document.getElementById("C").value = "";
+  document.getElementById("Other").value = "";
 
-
- const News = document.getElementById("News").value;
+  const News = document.getElementById("News").value;
   console.log("Source : " + News);
- const Friends = document.getElementById("Friends").value;
+  const Friends = document.getElementById("Friends").value;
   console.log("Source : " + Friends);
- const Social = document.getElementById("Social").value;
+  const Social = document.getElementById("Social").value;
   console.log("Source : " + Social);
- const Workshop = document.getElementById("Workshop").value;
+  const Workshop = document.getElementById("Workshop").value;
   console.log("Source : " + Workshop);
- const Received = document.getElementById("Received").value;
+  const Received = document.getElementById("Received").value;
   console.log("Source : " + Received);
- const others = document.getElementById("others").value;
+  const others = document.getElementById("others").value;
   console.log("Source : " + others);
+  document.getElementById("News").value = "";
+  document.getElementById("Friends").value = "";
+  document.getElementById("Social").value = "";
+  document.getElementById("Workshop").value = "";
+  document.getElementById("Received").value = "";
+  document.getElementById("others").value = "";
 
   const Kasim = document.getElementById("Kasim").value;
   console.log("Source : " + Kasim);
@@ -64,4 +88,7 @@ const DataS = document.getElementById("DataS").value;
   console.log("Source : " + Depali);
   const Anchal = document.getElementById("Anchal").value;
   console.log("Source : " + Anchal);
+  document.getElementById("Kasim").value = "";
+  document.getElementById("Depali").value = "";
+  document.getElementById("Anchal").value = "";
 }
