@@ -1,181 +1,185 @@
 #main {
-  background-color: rgb(238, 238, 247);
-  margin-left: 200px;
-  margin-right: 200px;
+  background-color: rgb(217, 228, 233);
+  margin-left: 250px;
+  margin-right: 250px;
+  height: 900px;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
-#Enquiry
-{
+#Enquiry {
   text-align: center;
 }
-#form
-{
+#form {
   text-align: center;
+  opacity: 60%;
 }
-#name
-{
-  margin-left: 100px;
+#name {
+  margin-left: 90px;
 }
-#person
-{
-  margin-left: 100px;
+#person {
+  margin-left: 90px;
   border-radius: 10px;
   width: 400px;
   border: 1px;
+  padding: 15px;
 }
-#Contact
-{
+#Contact {
   /* margin-left: 100px; */
   border-radius: 10px;
   width: 400px;
   border: 1px;
 }
-#number
-{
+#number {
   /* margin-left: 100px; */
   border-radius: 10px;
   width: 400px;
   border: 1px;
+  padding: 15px;
 }
-#Email
-{
-  margin-left: 100px;
+#Email {
+  margin-left: 90px;
   border-radius: 10px;
   width: 400px;
   border: 1px;
 }
-#email
-{
-  margin-left: 100px;
+#email {
+  margin-left: 90px;
   border-radius: 10px;
   width: 600px;
   border: 1px;
+  padding: 15px;
 }
-#Qualification
-{
+#Qualification {
   /* margin-left: 100px; */
   border-radius: 10px;
   width: 400px;
   border: 1px;
 }
-#qualification
-{
+#qualification {
   /* margin-left: 100px; */
   border-radius: 10px;
   width: 200px;
   border: 1px;
+  padding: 15px;
 }
-#College
-{
-  margin-left: 100px;
+#College {
+  margin-left: 90px;
   /* border-radius: 10px; */
   width: 600px;
   border: 1px;
 }
-#collage
-{
+#collage {
   /* margin-left: 100px; */
   border-radius: 10px;
-  width: 800px;
+  width: 850px;
   border: 1px;
+  padding: 15px;
 }
-#Year
-{
-   margin-left: 100px;
+#Year {
+  margin-left: 90px;
   border-radius: 10px;
   width: 400px;
   border: 1px;
 }
-#year
-{
-   margin-left: 100px;
-   border-radius: 10px;
-   width: 400px;
-   border: 1px;
-   opacity: 60%;
+#year {
+  margin-left: 90px;
+  border-radius: 10px;
+  width: 400px;
+  border: 1px;
+  opacity: 60%;
+  padding: 15px;
 }
-#branch
-{
+#branch {
   /* margin-left: 100px; */
-   border-radius: 10px;
-   width: 400px;
-   border: 1px;
+  border-radius: 10px;
+  width: 400px;
+  border: 1px;
+  padding: 15px;
 }
-#Interested
-{
-  margin-left: 100px;
+#Interested {
+  margin-left: 90px;
 }
-#Full
-{
-  margin-left: 100px;
+#Full {
+  margin-left: 90px;
 }
-#DataS
-{
-  margin-left: 100px;
+#DataS {
+  margin-left: 90px;
 }
-#DataA
-{
-  margin-left: 100px;
+#DataA {
+  margin-left: 90px;
 }
-#Business
-{
-  margin-left: 100px;
+#Business {
+  margin-left: 90px;
 }
-#Java
-{
-margin-left: 100px;
+#Java {
+  margin-left: 90px;
 }
-#Python
-{
-margin-left: 100px;
+#Python {
+  margin-left: 90px;
 }
-#C
-{
-margin-left: 100px;
+#C {
+  margin-left: 90px;
 }
-#Other
-{
-margin-left: 100px;
+#Other {
+  margin-left: 90px;
 }
-#Source
-{
+#Source {
   margin-left: 32px;
 }
-#t
-{
+#t {
   margin-left: 32px;
 }
-#e
-{
+#e {
   margin-left: 32px;
 }
-#source
-{
+#source {
   margin-left: 32px;
   border-radius: 10px;
-   width: 400px;
-   border: 1px;
-   opacity: 60%;
+  width: 400px;
+  border: 1px;
+  opacity: 60%;
+  padding: 15px;
 }
-#Executive
-{
+#Executive {
   margin-left: 32px;
   border-radius: 10px;
-   width: 400px;
-   border: 1px;
-   
+  width: 400px;
+  border: 1px;
 }
-#executive{
+#executive {
   margin-left: 32px;
   border-radius: 10px;
-   width: 400px;
-   border: 1px;
-   opacity: 60%;
+  width: 400px;
+  border: 1px;
+  opacity: 60%;
+  padding: 15px;
 }
-#Submmit
-{
-  #submmit
-  {
+#Submmit {
+  #submmit {
+    font-style: bold;
     border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: rgb(26, 24, 24);
+    color: white;
+    border: none;
+    margin-top: 30px;
   }
-  text-align: center ;
+  text-align: center;
+}
+#Cn {
+  margin-left: 50px;
+}
+#Qc {
+  margin-left: 50px;
+}
+#Br {
+  margin-left: 50px;
+}
+#Sc {
+  margin-left: 50px;
 }
