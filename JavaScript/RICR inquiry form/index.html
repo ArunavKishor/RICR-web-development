@@ -62,7 +62,7 @@
         <div>
           <span id="Year">Year*</span><br />
           <select id="year" name="Year">
-            <option value="none" id="1">Year</option>
+            <option value="none" >Year</option>
             <option value="First Year" id="2">First Year</option>
             <option value="Second Year" id="3">Second Year</option>
             <option value="Third Year" id="4">Third Year</option>
@@ -109,35 +109,35 @@
             <div>
               <select name="Year" id="source">
                 <option value="none">Source of Information</option>
-                <option value="News Paper/Print Media ">
+                <option id="News" value="News Paper/Print Media ">
                   News Paper/Print Media
                 </option>
-                <option value="Friends / Relativs">Friends / Relativs</option>
-                <option value="Social Media">Social Media</option>
-                <option value="Workshop / Seminar">Workshop / Seminar</option>
-                <option
+                <option id="Friends" value="Friends / Relativs">Friends / Relativs</option>
+                <option id="Social" value="Social Media">Social Media</option>
+                <option id="Workshop" value="Workshop / Seminar">Workshop / Seminar</option>
+                <option id="Received"
                   value="Received call from institute (Only choose 'Received call from institute' if you actually got a
             call from us)"
                 >
                   Received call from institute (Only choose 'Received call from
                   institute' if you actually got a call from us)
                 </option>
-                <option value="Others">Others</option>
+                <option id="others" value="Others">Others</option>
               </select>
             </div>
             <br />
             <span id="Executive">Name of Executive*</span><br />
             <select name="Executive*" id="executive">
               <option value="none">Name of Executive</option>
-              <option value="Kasim Khan">Kasim Khan</option>
-              <option value="Depali Tated">Depali Tated</option>
-              <option value="Anchal Sejwar">Anchal Sejwar</option>
+              <option value="Kasim Khan" id="Kasim">Kasim Khan</option>
+              <option value="Depali Tated" id="Depali">Depali Tated</option>
+              <option value="Anchal Sejwar" id="Anchal">Anchal Sejwar</option>
             </select>
           </div>
         </div>
         <br />
       </div>
-      <div id="Submmit"><button id="submmit">Submmit</button></div>
+      <div id="Submmit"><button id="submmit" onclick="Login()">Submmit</button></div>
     </div>
     <!-- -------------------------------------------------------------------------------------------------------------------------------------- -->
     <script
