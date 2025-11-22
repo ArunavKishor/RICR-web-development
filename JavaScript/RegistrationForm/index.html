@@ -18,7 +18,7 @@
   <body class="bg-light">
     <header>
       <div
-        class="container-fluid bg-primary px-3 py-1 d-flex justify-content-between"
+        class="container-fluid bg-primary px-3 py-1 d-flex justify-content-between sticky-top"
       >
         <div class="d-flex gap-3">
           <img
@@ -168,7 +168,7 @@
                     id="morning"
                     value="morning"
                     class="form-check-input"
-                    style="accent-color: red !important;"
+                    style="accent-color: red !important"
                   />
                   <span>Morning</span>
                 </div>
@@ -207,8 +207,128 @@
           </div>
         </div>
 
-        <button type="" class="btn btn-success" onclick="submit()">Submit</button>
+        <!-- Address -->
+        <div class="border border-dark rounded p-3 pt-4 my-3 position-relative">
+          <span
+            class="px-2 fs-5 position-absolute bg-white text-primary"
+            style="top: -15px"
+            >Address</span
+          >
+          <div class="d-grid gap-3">
+            <div class="d-flex align-items-center">
+              <label for="Residential" class="form-label w-25"
+                >Residential Address: <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="text"
+                name="Residential"
+                id="Residential"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="d-flex align-items-center">
+              <label for="City" class="form-label w-25"
+                >City: <sup class="text-danger">*</sup>
+              </label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="d-flex align-items-center">
+              <label for="Pin" class="form-label w-25"
+                >Pin Code: <sup class="text-danger">*</sup>
+              </label>
+              <input
+                type="number"
+                name="pin"
+                id="pin"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Guardian Details: -->
+        <div class="border border-dark rounded p-3 pt-4 my-3 position-relative">
+          <span
+            class="px-2 fs-5 position-absolute bg-white text-primary"
+            style="top: -15px"
+            >Guardian Details:</span
+          >
+          <div class="d-grid gap-3">
+            <div class="d-flex align-items-center">
+              <label for="Guardian" class="form-label w-25"
+                >Guardian’s Full Name: <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="text"
+                name="Details"
+                id="Details"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="d-flex align-items-center">
+              <label for="GuardianContact " class="form-label w-25"
+                >Guardian’s Contact Number:: <sup class="text-danger">*</sup>
+              </label>
+              <input
+                type="text"
+                name="Contact"
+                id="Contact "
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="border border-dark rounded p-3 pt-4 my-3 position-relative">
+          <span
+            class="px-2 fs-5 position-absolute bg-white text-primary"
+            style="top: -15px"
+            >Additional Information:</span
+          >
+          <div class="d-grid gap-3">
+            <div class="d-flex align-items-center">
+              <label for="How" class="form-label w-25"
+                >How did you hear about us?:
+                <sup class="text-danger">*</sup></label
+              >
+              <select name="How" id="How" class="form-select">
+                <option value="">--Select Qualification</option>
+                <option value="10">Secondary Schooling</option>
+                <option value="12">Senior Secondary Schooling</option>
+                <option value="UG">Graduation</option>
+                <option value="PG">Post Graduation</option>
+                <option value="PHD">P.hd</option>
+              </select>
+            </div>
+            <div class="d-flex align-items-center">
+              <label for="score" class="form-label w-25"
+                >Special Requirements: <sup class="text-danger">*</sup>
+              </label>
+              <input
+                type="text"
+                name="Special "
+                id="Special "
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <button type="" class="btn btn-success " onclick="submit()">Submit</button>
       </div>
+
+      
     </main>
 
     <script
