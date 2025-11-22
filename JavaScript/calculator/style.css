@@ -1,0 +1,57 @@
+body {
+  background: #222;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  font-family: sans-serif;
+}
+
+
+main {
+  background: #000;
+  padding: 20px;
+  border-radius: 12px;
+  width: 280px;
+}
+
+
+#number {
+  width: 90%;
+  padding: 12px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+  background: whitesmoke;
+  color: black;
+}
+
+
+main > div {
+  margin-top: 8px;
+}
+
+
+button {
+  width: 55px;
+  height: 55px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background:white;
+  color: black;
+  cursor: pointer;
+}
+
+.w button {
+  width: 292px;
+  background: #d21111;
+  color: white;
+}
+
+.nr{
+  padding-left: 30px;
+}
+.y {
+    background-color: #d21111;
+    color: white;
+}
