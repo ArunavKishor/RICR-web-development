@@ -1,0 +1,38 @@
+#boundary
+{
+    border: 1px solid #000;
+    
+}
+#inner1{
+    border: 1px solid #000;
+    display: flex;
+}
+#text
+{
+    width: 1000px;
+    margin-top: 20px;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+}
+#Heading
+{
+    text-align: center;
+}
+#lorem
+{
+    text-align: center;
+    font-size: large;
+}
+#inner2
+{
+   display: grid;
+   align-items: center;
+   margin-left: 150px;
+   padding: 20px;
+   
+}
+#in
+{
+    display: flex;
+    gap: 10px;
+}
