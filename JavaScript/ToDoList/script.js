@@ -34,6 +34,6 @@ function TaskAdd() {
 
     document.getElementById("TaskList").appendChild(l);
 
-    document.getElementById("NewTask").value = "";
+    document.getElementById("NewTask").value = " ";
   }
 }
