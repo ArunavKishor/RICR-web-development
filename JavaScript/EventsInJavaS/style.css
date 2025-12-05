@@ -1,26 +1,79 @@
-#bulb
-{
-    padding: 50px;
+#bulb {
+  padding: 50px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: fit-content;
+}
+button {
+  margin: 10px;
+}
+#color {
+  margin: 20px;
+}
+#smartBulb {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+.On {
+  background-color: yellow;
+}
+#led {
+  padding: 50px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: fit-content;
+}
+#c1{
+    padding: 10px;
     border: 1px solid #000;
     border-radius: 50%;
-    width: fit-content;
+    background-color: red;
+    text-align: center;
 }
-button{
-    margin: 10px;
-}
-#color{
-    margin: 20px;
-}
-#smartBulb
-{
-    height: 100px;
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#c2{
+    padding: 10px;
     border: 1px solid #000;
     border-radius: 50%;
+    background-color: orange;
+    text-align: center;
 }
-.On{
+#c3{
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
     background-color: yellow;
+    text-align: center;
+}
+#c4{
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: green;
+    text-align: center;
+}
+#c5{
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: blue;
+    text-align: center;
+}
+#c6{
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: indigo;
+    text-align: center;
+}
+#c7{
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: violet;
+    text-align: center;
 }
