@@ -24,7 +24,7 @@ button {
 }
 #led {
   padding: 50px;
-  border: 1px solid #000;
+  border: 2px solid black;
   border-radius: 50%;
   width: fit-content;
 }
