@@ -1,0 +1,23 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Card hover */
+.course-card {
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Navbar hover */
+.nav-link:hover {
+  color: #ffd700 !important;
+}
+
+/* Button hover */
+.btn-primary:hover {
+  background-color: #003c99;
+}
