@@ -155,7 +155,7 @@ function placeFlag(state) {
 
   marker.innerHTML = `
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-      <rect x="2" y="2" width="2" height="20" fill="#333"/>
+      <rect x="2" y="2" width="2" height="200" fill="#333"/>
       <path d="M4 5c2-1 5-1 7 0 2 1 5 1 7 0v10c-2 1-5 1-7 0-2-1-5-1-7 0V5z" fill="#d10000"/>
     </svg>
 
@@ -167,7 +167,7 @@ function placeFlag(state) {
   `;
 
   mapWrap.appendChild(marker);
-  placed.add(state);
+  // placed.add(state);
 }
 
 // Flash animation if state already placed

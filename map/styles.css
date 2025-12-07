@@ -44,6 +44,7 @@ button {
   font-weight: 600;
   cursor: pointer;
 }
+
 .map-wrap {
   position: relative;
   width: 900px;
@@ -71,10 +72,14 @@ button {
   width: 34px;
   height: 34px;
 }
+
+/* ⭐ Updated tooltip: centered above the flag */
 .marker .tooltip {
   position: absolute;
-  top: -110px;
-  left: 30px;
+  bottom: 100%;              /* place above the flag */
+  left: 50%;                 /* horizontally centered */
+  transform: translateX(-50%) translateY(-10px);
+
   background: #222;
   color: #fff;
   padding: 8px 12px;
@@ -82,9 +87,11 @@ button {
   font-size: 13px;
   width: max-content;
   max-width: 220px;
+
   opacity: 0;
   pointer-events: none;
   transition: 0.25s ease-in-out;
+
   border: 1px solid #444;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
@@ -98,4 +105,10 @@ button {
   background: #444;
   position: relative;
   z-index: 9999;
+}
+
+#clearBtn {
+  margin-bottom: 15px;
+  background-color: skyblue;
+  color: red;
 }
