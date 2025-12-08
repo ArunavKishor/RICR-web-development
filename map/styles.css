@@ -4,7 +4,6 @@
   margin: 10px;
   font-family: Arial;
 }
-
 body {
   display: flex;
   flex-direction: column;
@@ -72,12 +71,10 @@ button {
   width: 34px;
   height: 34px;
 }
-
-/* ⭐ Updated tooltip: centered above the flag */
 .marker .tooltip {
   position: absolute;
-  bottom: 100%;              /* place above the flag */
-  left: 50%;                 /* horizontally centered */
+  bottom: 100%;
+  left: 50%;
   transform: translateX(-50%) translateY(-10px);
 
   background: #222;
