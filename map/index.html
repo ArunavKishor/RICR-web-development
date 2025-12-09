@@ -8,20 +8,22 @@
   </head>
   <body>
     <h2 class="title">India — State Search</h2>
+
     <div class="topbar">
       <select id="stateDropdown">
         <option value="">-- Select a State --</option>
       </select>
-
       <button id="clearBtn" class="clear-btn" onclick="relode()">Clear All Flags</button>
-      
+      <button id="addAllBtn">Add All Flags</button>
+
+      <button id="muteBtn">🔊 Sound On</button>
     </div>
+
+    <audio id="flagSound" src="./sounds/sharp-pop-328170.mp3"></audio>
 
     <div class="map-wrap" id="mapWrap">
       <img src="Map.jpg" id="mapImg" alt="India Map" />
     </div>
-
-    
 
     <script src="mainScript.js"></script>
   </body>

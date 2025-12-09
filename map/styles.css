@@ -4,6 +4,7 @@
   margin: 10px;
   font-family: Arial;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -43,6 +44,15 @@ button {
   font-weight: 600;
   cursor: pointer;
 }
+#addAllBtn {
+  background: green;
+  color: white;
+}
+
+#muteBtn {
+  background: orange;
+  color: white;
+}
 
 .map-wrap {
   position: relative;
@@ -71,6 +81,7 @@ button {
   width: 34px;
   height: 34px;
 }
+
 .marker .tooltip {
   position: absolute;
   bottom: 100%;
@@ -98,14 +109,7 @@ button {
 }
 
 .clear-btn {
-  margin-top: 12px;
-  background: #444;
+  background: red;
   position: relative;
   z-index: 9999;
-}
-
-#clearBtn {
-  margin-bottom: 15px;
-  background-color: skyblue;
-  color: red;
 }

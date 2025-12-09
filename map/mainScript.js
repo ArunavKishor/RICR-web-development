@@ -11,7 +11,7 @@ const statePositions = {
   jharkhand: [59, 46],
   karnataka: [30, 73],
   kerala: [31, 86],
-  "madhya pradesh": [38, 46  ],
+  "madhya pradesh": [38, 46],
   maharashtra: [30, 57],
   manipur: [87, 40],
   meghalaya: [80, 39],
@@ -33,75 +33,43 @@ const statePositions = {
   "andaman and nicobar islands": [86, 78],
   lakshadweep: [16, 80],
 };
+
 const stateInfo = {
-  "andhra pradesh": {
-    capital: "Amaravati",
-  },
-  "arunachal pradesh": {
-    capital: "Itanagar",
-  },
+  "andhra pradesh": { capital: "Amaravati" },
+  "arunachal pradesh": { capital: "Itanagar" },
   assam: { capital: "Dispur" },
   bihar: { capital: "Patna" },
-  chhattisgarh: {
-    capital: "Raipur",
-  },
+  chhattisgarh: { capital: "Raipur" },
   goa: { capital: "Panaji" },
-  gujarat: {
-    capital: "Gandhinagar",
-  },
-  haryana: {
-    capital: "Chandigarh",
-  },
-  "himachal pradesh": {
-    capital: "Shimla",
-  },
+  gujarat: { capital: "Gandhinagar" },
+  haryana: { capital: "Chandigarh" },
+  "himachal pradesh": { capital: "Shimla" },
   jharkhand: { capital: "Ranchi" },
   karnataka: { capital: "Bengaluru" },
-  kerala: {
-    capital: "Thiruvananthapuram",
-  },
-  "madhya pradesh": {
-    capital: "Bhopal",
-  },
+  kerala: { capital: "Thiruvananthapuram" },
+  "madhya pradesh": { capital: "Bhopal" },
   maharashtra: { capital: "Mumbai" },
   manipur: { capital: "Imphal" },
   meghalaya: { capital: "Shillong" },
   mizoram: { capital: "Aizawl" },
   nagaland: { capital: "Kohima" },
-  odisha: {
-    capital: "Bhubaneswar",
-  },
+  odisha: { capital: "Bhubaneswar" },
   punjab: { capital: "Chandigarh" },
-  rajasthan: {
-    capital: "Jaipur",
-  },
+  rajasthan: { capital: "Jaipur" },
   sikkim: { capital: "Gangtok" },
   "tamil nadu": { capital: "Chennai" },
-  telangana: {
-    capital: "Hyderabad",
-  },
+  telangana: { capital: "Hyderabad" },
   tripura: { capital: "Agartala" },
-  "uttar pradesh": {
-    capital: "Lucknow",
-  },
-  uttarakhand: {
-    capital: "Dehradun",
-  },
-  "west bengal": {
-    capital: "Kolkata",
-  },
+  "uttar pradesh": { capital: "Lucknow" },
+  uttarakhand: { capital: "Dehradun" },
+  "west bengal": { capital: "Kolkata" },
   delhi: { capital: "New Delhi" },
-  "jammu & kashmir": {
-    capital: "Srinagar/Jammu",
-  },
+  "jammu & kashmir": { capital: "Srinagar/Jammu" },
   ladakh: { capital: "Leh" },
-  "andaman and nicobar islands": {
-    capital: "Port Blair",
-  },
-  lakshadweep: {
-    capital: "Kavaratti",
-  },
+  "andaman and nicobar islands": { capital: "Port Blair" },
+  lakshadweep: { capital: "Kavaratti" },
 };
+
 const aliases = {
   tn: "tamil nadu",
   tamilnadu: "tamil nadu",
@@ -115,18 +83,14 @@ const aliases = {
   wb: "west bengal",
   raj: "rajasthan",
 };
+
 const lookup = {};
 Object.keys(statePositions).forEach((k) => (lookup[k] = k));
 Object.keys(aliases).forEach((a) => (lookup[a] = aliases[a]));
 
-const input = document.getElementById("searchInput");
-const btn = document.getElementById("searchBtn");
-const clearBtn = document.getElementById("clearBtn");
 const dropdown = document.getElementById("stateDropdown");
 const mapWrap = document.getElementById("mapWrap");
-
 const placed = new Set();
-
 Object.keys(statePositions)
   .sort()
   .forEach((st) => {
@@ -139,6 +103,7 @@ Object.keys(statePositions)
 dropdown.onchange = () => {
   if (dropdown.value) search(dropdown.value);
 };
+
 function normalize(s) {
   return s.trim().toLowerCase().replace(/\s+/g, " ");
 }
@@ -162,49 +127,48 @@ function placeFlag(state) {
     <div class="tooltip">
       <b>${state.replace(/\b\w/g, (c) => c.toUpperCase())}</b><br>
       Capital: ${info.capital}<br>
-      
     </div>
   `;
 
   mapWrap.appendChild(marker);
-  // placed.add(state);
 }
 
-// Flash animation if state already placed
-function flash(state) {
-  document.querySelectorAll(".marker").forEach((m) => {
-    if (m.querySelector(".tooltip").innerHTML.toLowerCase().includes(state)) {
-      m.animate(
-        [
-          { transform: "scale(1)" },
-          { transform: "scale(1.3)" },
-          { transform: "scale(1)" },
-        ],
-        { duration: 400 }
-      );
-    }
-  });
-}
-
-function search(arg) {
-  const raw = arg || input.value;
-  const name = normalize(raw);
-  if (!name) return alert("Enter a state!");
-
-  let st = lookup[name];
-  if (!st) {
-    for (const k in lookup) {
-      if (k.includes(name)) st = lookup[k];
-    }
-  }
-
-  if (!st) return alert("Not found: " + raw);
-
-  if (placed.has(st)) return flash(st);
+function search(name) {
+  const st = lookup[normalize(name)];
+  if (!st) return alert("Not found: " + name);
 
   placeFlag(st);
-  input.value = "";
+  if (soundEnabled) {
+    sound.currentTime = 0;
+    sound.play();
+  }
 }
-function relode(){
+const sound = document.getElementById("flagSound");
+let soundEnabled = true;
+
+document.getElementById("muteBtn").onclick = () => {
+  soundEnabled = !soundEnabled;
+  document.getElementById("muteBtn").textContent = soundEnabled
+    ? "🔊 Sound On"
+    : "🔇 Sound Off";
+};
+document.getElementById("addAllBtn").onclick = () => {
+  let delay = 0;
+
+  Object.keys(statePositions).forEach((st) => {
+    setTimeout(() => {
+      placeFlag(st);
+
+      if (soundEnabled) {
+        sound.currentTime = 0;
+        sound.play();
+      }
+    }, delay);
+
+    delay += 200;
+  });
+};
+
+function relode() {
   window.location.reload();
 }
