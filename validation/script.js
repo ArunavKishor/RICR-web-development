@@ -1,36 +1,59 @@
 function Submit() {
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("Email").value.trim();
-  const number = document.getElementById("number").value.trim();
-  const dob = document.getElementById("dob").value.trim();
+  const nm = document.getElementById("fullname").value.trim();
+  const em = document.getElementById("email").value.trim();
+  const ph = document.getElementById("phone").value.trim();
+  const db = document.getElementById("dob").value.trim();
 
-    document.querySelectorAll
+  document.querySelectorAll(".Error").forEach((element) => {
+    element.innerHTML = "";
+  });
 
-  if (!/^[a-zA-Z ]+$/.test(name)) {
-    alert("Invalid name format");
+  //Validation Starts
+  if (!nm) {
+    document.getElementById("NameError").innerText = "Required";
+    return;
+  } else if (!/^[A-Za-z ]+$/.test(nm)) {
+    document.getElementById("NameError").innerText =
+      "Only Alphabets and Spaces are Allowed";
     return;
   }
-  if (!/^[a-zA-Z0-9._]+@(gmail\.com|yahoo\.co\.in|outlook\.com)$/.test(email)) {
-    alert("Invalid email format");
+
+  if (!em) {
+    document.getElementById("EmailError").innerText = "Required";
+    return;
+  } else if (!/^[\w\.]+@(gmail|outlook|ricr|yahoo)\.(com|in|co.in)$/.test(em)) {
+    document.getElementById("EmailError").innerText = "Use Proper Email Format";
     return;
   }
-  if (!/^[6-9]\d(9)+$/.test(number)) {
-    alert("Invalid number");
+
+  if (!ph) {
+    document.getElementById("PhoneError").innerText = "Required";
+    return;
+  } else if (!/^[6-9]\d{9}$/.test(ph)) {
+    document.getElementById("PhoneError").innerText =
+      "Only Indian Mobile Nummber allowed";
     return;
   }
 
-  const currentDate = new Date().getFullYear();
-  const birthYear=Number (db.split("-")[0]);
-
-  console.log(currentDate);
-
-  //use logic of age calculator
+  if (!db) {
+    document.getElementById("NameError").innerText = "Required";
+    return;
+  } else {
+    const currentyear = new Date().getFullYear();
+    const birthyear = Number(db.split("-")[0]);
+    if (currentyear - birthyear < 17) {
+      document.getElementById("DOBError").innerText =
+        "You must be 18 years Old";
+      return;
+    }
+  }
 
   const data = {
-    FullName: name,
-    Email: email,
-    Number: number,
-    DOB: dob,
+    FullName: nm,
+    Email: em,
+    Phone: ph,
+    DOB: db,
   };
+
   console.log(data);
 }
