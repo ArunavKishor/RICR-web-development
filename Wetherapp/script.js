@@ -14,7 +14,7 @@ async function getWeather() {
             <p>Description : ${data.weather[0].description}</p>
          </div>
           <img src=" https://openweathermap.org/img/wn/${
-            data.weather[0].icon
+            data.weather[ 0 ].icon
           }@4x.png" alt="WeatherIcon" />`;
 }
 
