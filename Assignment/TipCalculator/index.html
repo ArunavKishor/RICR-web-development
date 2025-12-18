@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- heading -->
+    <header>
+      <div
+        class="container w-25 text-center rounded-5 p-1 text-light"
+        style="background-color: orange"
+      >
+        <h1>Tip Calculator</h1>
+      </div>
+    </header>
+    <!-- main div  -->
+    <div class="d-flex justify-content-center">
+      <div
+        class="bg-light text-center border rounded-5"
+        style="padding-left: 30px; padding-right: 130px"
+      >
+        <label for="bill" class="mb-1">Bill Amount</label>
+        <div class="mb-4 d-flex ">
+          <div>
+            <input
+              type="number"
+              name="billAmount"
+              id="billAmount"
+              class="form-control border-0"
+              placeholder="Amount to be paid"
+            />
+          </div>
+          <div >
+            <span >&nbsp₹</span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="service" class="mb-1">How was the service ?</label>
+          <select id="service" class="form-control">
+            <option value="Select">Select</option>
+            <option value="0.25">25% - Top Notch</option>
+            <option value="0.20">20% - Excellent</option>
+            <option value="0.15">15% - Good</option>
+            <option value="0.10">10% - Fair</option>
+            <option value="0.05">5% - Poor</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label for="persons" class="mb-1">Total number of persons</label>
+          <input
+            type="number"
+            name="persons"
+            id="persons"
+            class="form-control"
+            placeholder="Enter number of people"
+          />
+        </div>
+
+        <div class="mb-4">
+          <button class="btn btn-primary w-100" onclick="CalculateTip()">
+            Calculate
+          </button>
+        </div>
+
+        <div class="tip" id="tip"></div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
