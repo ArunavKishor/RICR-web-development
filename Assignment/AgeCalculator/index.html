@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+</head>
+<body>
+    <!-- header  -->
+    <div>
+        <head>
+        <div class="container w-25 pg bg-primary text-center text-light p-1 rounded">
+            <h1>
+                Age Calculator
+            </h1>
+        </div>
+    </head>
+    <!-- main div  -->
+    <main class="container border-0 shadow w-25 rounded mt-3 pb-5">
+        <!-- Date Of Birth  -->
+        <div class="container  text-center fw-bold">
+            <span> Enter your Date Of Birth</span> <br>
+            <input type="date" name="DOB" id="dob" class="w-100 p-1 border rounded mt-3">
+        </div>
+        <!-- Age till Date  -->
+        <div class="container text-center fw-bold mt-3">
+            <span> Age till Date</span> <br>
+            <input type="date" name="age" id="age" class="w-100 p-1 border rounded mt-3">
+        </div>
+        <!-- calculate button  -->
+        <div class="container  text-center mt-4">
+            <button class="btn btn-primary " onclick="Calculate()" >Calculate</button>
+        </div>
+        <!-- output area -->
+         <div class="mt-3">
+            <input type="text" name="Ageee" id="Ageee" class="border-0 w-100 text-center">
+        </div>
+    </main>
+    </div>
+    
+
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
