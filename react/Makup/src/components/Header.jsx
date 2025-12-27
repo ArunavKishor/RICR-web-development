@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <div className="bg-primary text-capitalize text-light text-center" id="Header">
-        <h1>MAKUP WALA</h1>
-      </div>
-      <div>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem laborum
-        quos mollitia tempora illum harum officia veniam molestiae voluptatum
-        consequatur explicabo architecto tenetur nisi officiis quod, dignissimos
-        molestias qui quia.
+      <div className="bg-[#5A0E24] text-light text-5xl justify-between flex ">
+        <div className="font-semibold  italic ">Makup Wala</div>
+        <div className="flex text-2xl gap-3 justify-end mt-1">
+          <div>Home</div>
+          <div>Contact</div>
+          <div>About</div>
+        </div>
       </div>
     </>
   );
