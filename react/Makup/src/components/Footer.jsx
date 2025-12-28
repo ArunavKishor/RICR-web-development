@@ -7,7 +7,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <div className="bg-black text-light p-4">
+      <div className="bg-black text-light p-4 mt-1">
         You Might Want To Look At <br />
         Caution Notice <br />
         Please Be Aware:Cyber crime,particularly fraudulent communications
