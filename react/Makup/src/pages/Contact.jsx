@@ -1,105 +1,159 @@
 import React, { useState } from "react";
 
 const Contact = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [contactData, setContactData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    city: "",
+    subject: "",
+    message: "",
+  });
 
-  const [isLoading, setIsLoading]=useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handelClearForm = () => {
-    setFullName("");
-    setEmail("");
-    setMessage("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setContactData((previousData) => ({
+      ...previousData,
+      [name]: value,
+    }));
   };
-//   const Vaild=()=>
-//   {
-//     isVaild=true;
-//     if(!/^[a-z A-z]+$/.test(fullName)){
-//         isVaild=false;
-//     }
-//   }
-const handleSubmit = async (event) => {
-    event.preventDefault();
+
+  const handleClearForm = () => {
+    setContactData({
+      fullName: "",
+      email: "",
+      phone: "",
+      city: "",
+      subject: "",
+      message: "",
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch(
-        "https://official-joke-api.appspot.com/jokes/jhbaskdjbf"
-      );
-      const data = {
-        fullName,
-        email,
-        message,
-      };
-      console.log(data);
+      // await fetch("https://official-joke-api.appspot.com/jokes/jhbaskdjbf");
+      console.log(contactData);
+      
     } catch (error) {
       console.log(error.message);
     } finally {
       setIsLoading(false);
     }
-    handelClearForm();
+    handleClearForm();
   };
+
   return (
     <>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem culpa velit
-        error quo, optio ipsa totam a enim iusto necessitatibus consequatur
-        doloribus minima quibusdam fugit recusandae ipsum architecto dolor
-        obcaecati!
-      </p>
-      <div>
-        <div>this is default Contact page </div>
-      </div>
-      <div className="text-center ">
-        <h1>Contact Us</h1>
-        <div className="container">
-          <form onReset={handelClearForm} onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="fullName">Full Name</label>
+      <div className="text-center">
+        <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
+
+        <div className="container mx-auto max-w-lg  p-6 rounded-lg">
+          <form onReset={handleClearForm} onSubmit={handleSubmit}>
+            <div className="flex items-center gap-4 mb-4">
+              <label htmlFor="fullName" className="w-28 font-semibold">
+                Full Name
+              </label>
               <input
                 type="text"
-                className="border "
-                id="fullName"
                 name="fullName"
-                value={fullName}
-                onChange={(event) => setFullName(event.target.value)}
-                placeholder="Enter Your Name"
-                required
+                id="fullName"
+                value={contactData.fullName}
+                onChange={handleChange}
+                placeholder="Enter your Name"
+                className="flex-1 border-2 border-black p-2 rounded text-primary"
               />
             </div>
-            <div>
-              <label htmlFor="email">Email</label>
+
+            <div className="flex items-center gap-4 mb-4">
+              <label htmlFor="email" className="w-28 font-semibold">
+                Email
+              </label>
               <input
-                type="text"
-                className="border "
-                id="email"
+                type="email"
                 name="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="Enter Your Email"
-                required
+                id="email"
+                value={contactData.email}
+                onChange={handleChange}
+                placeholder="Enter your Email"
+                className="flex-1 border-2 border-black p-2 rounded text-primary"
               />
             </div>
-            <div>
-              <label htmlFor="Message">Message</label>
+
+            <div className="flex items-center gap-4 mb-4">
+              <label htmlFor="phone" className="w-28 font-semibold">
+                Phone
+              </label>
+              <input
+                type="number"
+                name="phone"
+                id="phone"
+                value={contactData.phone}
+                onChange={handleChange}
+                placeholder="Enter your phone"
+                className="flex-1 border-2 border-black p-2 rounded text-primary"
+              />
+            </div>
+
+            <div className="flex items-center gap-4 mb-4">
+              <label htmlFor="city" className="w-28 font-semibold">
+                City
+              </label>
               <input
                 type="text"
-                className="border "
-                id="Message"
-                name="Message"
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                placeholder="Enter Your Message"
-                required
+                name="city"
+                id="city"
+                value={contactData.city}
+                onChange={handleChange}
+                placeholder="Enter your city"
+                className="flex-1 border-2 border-black p-2 rounded text-primary"
               />
             </div>
-            <div>
-              <button type="Reset" >Reset</button>
+
+            <div className="flex items-center gap-4 mb-4">
+              <label htmlFor="subject" className="w-28 font-semibold">
+                Subject
+              </label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                value={contactData.subject}
+                onChange={handleChange}
+                placeholder="Enter your subject"
+                className="flex-1 border-2 border-black p-2 rounded text-primary"
+              />
+            </div>
+
+            <div className="flex items-center gap-4 mb-4">
+              <label htmlFor="message" className="w-28 font-semibold">
+                Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                value={contactData.message}
+                onChange={handleChange}
+                placeholder="Enter your Message"
+                className="flex-1 border-2 border-black p-2 rounded text-primary h-24 resize-none"
+              ></textarea>
+            </div>
+
+            <div className="flex justify-between mt-6">
               <button
-                type="Submit"
-                className="border bg-sky-700 p-2 rounded-xl"
+                type="reset"
+                className="bg-red-600 text-white px-4 py-2 rounded "
               >
-                Submit
+                Clear Form
+              </button>
+              <button
+                type="submit"
+                className="bg-green-600 text-white px-4 py-2 rounded "
+              >
+                {isLoading ? "Loading..." : "Submit"}
               </button>
             </div>
           </form>
@@ -108,4 +162,5 @@ const handleSubmit = async (event) => {
     </>
   );
 };
+
 export default Contact;

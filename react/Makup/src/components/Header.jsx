@@ -19,6 +19,12 @@ const Header = () => {
           <Link to={"/Contact"} className="text-white">
             Contact
           </Link>
+          <Link to={"/Login"} className="text-white">
+            Login
+          </Link>
+          <Link to={"/SignUp"} className="text-white">
+            Sign-Up
+          </Link>
         </div>
       </div>
     </>
