@@ -18,32 +18,31 @@ const Home = () => {
         <br />
         <div className="flex justify-between ml-7 mr-7 ">
           <div>
-            <img src={SC1} alt="image 1" className="h-100"/>
+            <img src={SC1} alt="image 1" className="h-100" />
             <button className="border-2 rounded w-100 font-bold text-white bg-black p-2">
               ADD TO CART
             </button>
           </div>
           <div>
-            <img src={SC2} alt="image 2" className="h-100"/>
+            <img src={SC2} alt="image 2" className="h-100" />
             <button className="border-2 rounded w-100 font-bold text-white bg-black p-2">
               ADD TO CART
             </button>
           </div>
           <div>
-            <img src={SC3} alt="image 3" className="h-100"/>
+            <img src={SC3} alt="image 3" className="h-100" />
             <button className="border-2 rounded w-100 font-bold text-white bg-black p-2">
               ADD TO CART
             </button>
           </div>
           <div>
-            <img src={SC4} alt="image 4" className="h-100"/>
+            <img src={SC4} alt="image 4" className="h-100" />
             <button className="border-2 rounded w-100 font-bold text-white bg-black p-2">
               ADD TO CART
             </button>
           </div>
         </div>
       </div>
-
 
       {/* ----------------------------------------------- */}
       <div className="text-center mt-5">
@@ -53,30 +52,36 @@ const Home = () => {
         <br />
         <div className="flex justify-between ml-7 mr-7 ">
           <div>
-            <img src={SC11} alt="image 1" className="h-100"/>
+            <img src={SC11} alt="image 1" className="h-100" />
             <button className="border-2 rounded w-100 font-bold text-white bg-black p-2">
               ADD TO CART
             </button>
           </div>
           <div>
-            <img src={SC12} alt="image 2" className="h-100"/>
+            <img src={SC12} alt="image 2" className="h-100" />
             <button className="border-2 rounded w-100 font-bold text-white bg-black p-2">
               ADD TO CART
             </button>
           </div>
           <div>
-            <img src={SC13} alt="image 3" className="h-100"/>
+            <img src={SC13} alt="image 3" className="h-100" />
             <button className="border-2 rounded w-100 font-bold text-white bg-black p-2">
               ADD TO CART
             </button>
           </div>
           <div>
-            <img src={SC14} alt="image 4" className="h-100"/>
+            <img src={SC14} alt="image 4" className="h-100" />
             <button className="border-2 rounded w-100 font-bold text-white bg-black p-2">
               ADD TO CART
             </button>
           </div>
         </div>
+      </div>
+
+      {/* ----------------------------------------------- */}
+
+      <div className="container flex mt-[70px] justify-between">
+        <button className="border-2 p-3 text-white bg-black rounded items-center">VIEW ALL</button>
       </div>
     </>
   );
