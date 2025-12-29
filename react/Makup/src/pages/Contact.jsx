@@ -19,17 +19,25 @@ const Contact = () => {
 //         isVaild=false;
 //     }
 //   }
-  const handelSubmit = (event) => {
+const handleSubmit = async (event) => {
     event.preventDefault();
-    // if(!Valid()) return;
-    const data={
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        "https://official-joke-api.appspot.com/jokes/jhbaskdjbf"
+      );
+      const data = {
         fullName,
         email,
         message,
-    };
-    console.log(data);
+      };
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setIsLoading(false);
+    }
     handelClearForm();
-    
   };
   return (
     <>
@@ -45,7 +53,7 @@ const Contact = () => {
       <div className="text-center ">
         <h1>Contact Us</h1>
         <div className="container">
-          <form onReset={handelClearForm} onSubmit={handelSubmit}>
+          <form onReset={handelClearForm} onSubmit={handleSubmit}>
             <div>
               <label htmlFor="fullName">Full Name</label>
               <input
