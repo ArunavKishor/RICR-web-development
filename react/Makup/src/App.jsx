@@ -6,8 +6,6 @@ import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 function App() {
   return (
     <>

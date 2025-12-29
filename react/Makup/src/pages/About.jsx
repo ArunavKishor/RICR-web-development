@@ -1,15 +1,15 @@
 import React from "react";
+import MainImage from "../assets/pic1.png";
 
 const About = () => {
   return (
     <>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem culpa velit
-        error quo, optio ipsa totam a enim iusto necessitatibus consequatur
-        doloribus minima quibusdam fugit recusandae ipsum architecto dolor
-        obcaecati!
-      </p>
-      <div>This is Default About Page</div>
+      <div className="container text-center font-semibold text-4xl mt-2 ">
+        <span>About Us</span> <br /> 
+        <div className="flex justify-center mt-2">
+          <img src={MainImage} alt=""  />
+        </div>
+      </div>
     </>
   );
 };
