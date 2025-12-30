@@ -208,7 +208,7 @@ const Contact = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex justify-between mt-6">
+            <div className="flex gap-2 mt-6">
               <button
                 type="reset"
                 className="bg-red-600 text-white px-4 py-2 rounded"
