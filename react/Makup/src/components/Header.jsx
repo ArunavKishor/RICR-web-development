@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <div className="bg-[#5A0E24] text-light text-5xl justify-between flex p-2">
-        <div className="font-semibold italic  ">Makup Wala</div>
+        <div className="font-semibold italic  ">Cheeni</div>
         <div className="flex text-lg gap-3 justify-end mt-1.5">
           <Link to={"/"} className="text-white ">
             Home
