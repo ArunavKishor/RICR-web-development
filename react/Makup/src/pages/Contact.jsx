@@ -60,7 +60,6 @@ const Contact = () => {
 
         <div className="container mx-auto max-w-lg p-6 rounded-lg">
           <form onReset={handleClearForm} onSubmit={handleSubmit}>
-
             {/* Full Name */}
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Full Name</label>
@@ -210,14 +209,19 @@ const Contact = () => {
 
             {/* Buttons */}
             <div className="flex justify-between mt-6">
-              <button type="reset" className="bg-red-600 text-white px-4 py-2 rounded">
+              <button
+                type="reset"
+                className="bg-red-600 text-white px-4 py-2 rounded"
+              >
                 Clear Form
               </button>
-              <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded">
+              <button
+                type="submit"
+                className="bg-green-600 text-white px-4 py-2 rounded"
+              >
                 {isLoading ? "Loading..." : "Submit"}
               </button>
             </div>
-
           </form>
         </div>
       </div>
