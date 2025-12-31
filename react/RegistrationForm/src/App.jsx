@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const App = () => {
   const [contactData, setContactData] = useState({
@@ -48,169 +50,175 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", contactData);
+    toast.success("Registration Suscessfull");
     handleClearForm();
   };
 
   return (
-    <BrowserRouter>
-      <div className="bg-sky-400 text-white text-5xl p-2">
-        <div className="font-semibold italic text-center">Registration</div>
-      </div>
+    <>
+      <Toaster position="" reverseOrder={false} />
+      <BrowserRouter>
+        <div className="bg-sky-400 text-white text-5xl p-2">
+          <div className="font-semibold italic text-center">Registration</div>
+        </div>
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="max-w-2xl mx-auto p-6">
-              <h1 className="text-3xl font-semibold text-center mb-6 text-sky-400">
-                Coaching Institute Registration
-              </h1>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="max-w-2xl mx-auto p-6">
+                <h1 className="text-3xl font-semibold text-center mb-6 text-sky-400">
+                  Coaching Institute Registration
+                </h1>
 
-              <form
-                onSubmit={handleSubmit}
-                onReset={handleClearForm}
-                className="space-y-4"
-              >
-                {[
-                  ["Full Name", "fullName"],
-                  ["Email", "email"],
-                  ["Mobile", "mobile"],
-                  ["Percentage / Grade", "percentage"],
-                  ["City", "city"],
-                  ["Pin Code", "pincode"],
-                  ["Guardian Name", "guardianName"],
-                  ["Guardian Mobile", "guardianMobile"],
-                ].map(([label, name]) => (
-                  <div key={name} className="flex gap-4 items-center">
-                    <label className="w-48 font-semibold">{label}</label>
+                <form
+                  onSubmit={handleSubmit}
+                  onReset={handleClearForm}
+                  className="space-y-4"
+                >
+                  {[
+                    ["Full Name", "fullName"],
+                    ["Email", "email"],
+                    ["Mobile", "mobile"],
+                    ["Percentage / Grade", "percentage"],
+                    ["City", "city"],
+                    ["Pin Code", "pincode"],
+                    ["Guardian Name", "guardianName"],
+                    ["Guardian Mobile", "guardianMobile"],
+                  ].map(([label, name]) => (
+                    <div key={name} className="flex gap-4 items-center">
+                      <label className="w-48 font-semibold">{label}</label>
+                      <input
+                        name={name}
+                        value={contactData[name]}
+                        onChange={handleChange}
+                        className="flex-1 border border-black p-2 rounded-md"
+                      />
+                    </div>
+                  ))}
+
+                  <div className="flex gap-4 items-center">
+                    <label className="w-48 font-semibold">Date of Birth</label>
                     <input
-                      name={name}
-                      value={contactData[name]}
+                      type="date"
+                      name="dob"
+                      value={contactData.dob}
                       onChange={handleChange}
                       className="flex-1 border border-black p-2 rounded-md"
                     />
                   </div>
-                ))}
 
-                <div className="flex gap-4 items-center">
-                  <label className="w-48 font-semibold">Date of Birth</label>
-                  <input
-                    type="date"
-                    name="dob"
-                    value={contactData.dob}
-                    onChange={handleChange}
-                    className="flex-1 border border-black p-2 rounded-md"
-                  />
-                </div>
+                  <div className="flex gap-4 items-center">
+                    <label className="w-48 font-semibold">Qualification</label>
+                    <select
+                      name="qualification"
+                      value={contactData.qualification}
+                      onChange={handleChange}
+                      className="flex-1 border border-black p-2 rounded-md"
+                    >
+                      <option value="">Select</option>
+                      <option>10th</option>
+                      <option>12th</option>
+                      <option>Graduate</option>
+                      <option>Postgraduate</option>
+                    </select>
+                  </div>
 
-                <div className="flex gap-4 items-center">
-                  <label className="w-48 font-semibold">Qualification</label>
-                  <select
-                    name="qualification"
-                    value={contactData.qualification}
-                    onChange={handleChange}
-                    className="flex-1 border border-black p-2 rounded-md"
-                  >
-                    <option value="">Select</option>
-                    <option>10th</option>
-                    <option>12th</option>
-                    <option>Graduate</option>
-                    <option>Postgraduate</option>
-                  </select>
-                </div>
+                  <div className="flex gap-4 items-center">
+                    <label className="w-48 font-semibold">
+                      Preferred Course
+                    </label>
+                    <select
+                      name="course"
+                      value={contactData.course}
+                      onChange={handleChange}
+                      className="flex-1 border border-black p-2 rounded-md"
+                    >
+                      <option value="">Select</option>
+                      <option>IIT-JEE</option>
+                      <option>NEET</option>
+                      <option>UPSC</option>
+                      <option>Banking</option>
+                    </select>
+                  </div>
 
-                <div className="flex gap-4 items-center">
-                  <label className="w-48 font-semibold">Preferred Course</label>
-                  <select
-                    name="course"
-                    value={contactData.course}
-                    onChange={handleChange}
-                    className="flex-1 border border-black p-2 rounded-md"
-                  >
-                    <option value="">Select</option>
-                    <option>IIT-JEE</option>
-                    <option>NEET</option>
-                    <option>UPSC</option>
-                    <option>Banking</option>
-                  </select>
-                </div>
+                  <div className="flex gap-4 items-center">
+                    <label className="w-48 font-semibold">Batch Timing</label>
+                    <select
+                      name="batch"
+                      value={contactData.batch}
+                      onChange={handleChange}
+                      className="flex-1 border border-black p-2 rounded-md"
+                    >
+                      <option value="">Select</option>
+                      <option>Morning</option>
+                      <option>Afternoon</option>
+                      <option>Evening</option>
+                      <option>Weekend</option>
+                    </select>
+                  </div>
 
-                <div className="flex gap-4 items-center">
-                  <label className="w-48 font-semibold">Batch Timing</label>
-                  <select
-                    name="batch"
-                    value={contactData.batch}
-                    onChange={handleChange}
-                    className="flex-1 border border-black p-2 rounded-md"
-                  >
-                    <option value="">Select</option>
-                    <option>Morning</option>
-                    <option>Afternoon</option>
-                    <option>Evening</option>
-                    <option>Weekend</option>
-                  </select>
-                </div>
+                  <div className="flex gap-4 items-center">
+                    <label className="w-48 font-semibold">
+                      Residential Address
+                    </label>
+                    <input
+                      name="address"
+                      value={contactData.address}
+                      onChange={handleChange}
+                      className="flex-1 border border-black p-2 rounded-md"
+                    />
+                  </div>
+                  <div className="flex gap-4 items-center">
+                    <label className="w-48 font-semibold">
+                      How did you hear about us?
+                    </label>
+                    <select
+                      name="source"
+                      value={contactData.source}
+                      onChange={handleChange}
+                      className="flex-1 border border-black p-2 rounded-md"
+                    >
+                      <option value="">Select</option>
+                      <option>Friends</option>
+                      <option>Online Ad</option>
+                      <option>Newspaper</option>
+                      <option>Social Media</option>
+                    </select>
+                  </div>
+                  <div className="flex gap-4 items-center">
+                    <label className="w-48 font-semibold">
+                      Special Requirements
+                    </label>
+                    <input
+                      name="specialReq"
+                      value={contactData.specialReq}
+                      onChange={handleChange}
+                      className="flex-1 border border-black p-2 rounded-md"
+                    />
+                  </div>
 
-                <div className="flex gap-4 items-center">
-                  <label className="w-48 font-semibold">
-                    Residential Address
-                  </label>
-                  <input
-                    name="address"
-                    value={contactData.address}
-                    onChange={handleChange}
-                    className="flex-1 border border-black p-2 rounded-md"
-                  />
-                </div>
-                <div className="flex gap-4 items-center">
-                  <label className="w-48 font-semibold">
-                    How did you hear about us?
-                  </label>
-                  <select
-                    name="source"
-                    value={contactData.source}
-                    onChange={handleChange}
-                    className="flex-1 border border-black p-2 rounded-md"
-                  >
-                    <option value="">Select</option>
-                    <option>Friends</option>
-                    <option>Online Ad</option>
-                    <option>Newspaper</option>
-                    <option>Social Media</option>
-                  </select>
-                </div>
-                <div className="flex gap-4 items-center">
-                  <label className="w-48 font-semibold">
-                    Special Requirements
-                  </label>
-                  <input
-                    name="specialReq"
-                    value={contactData.specialReq}
-                    onChange={handleChange}
-                    className="flex-1 border border-black p-2 rounded-md"
-                  />
-                </div>
-
-                <div className="flex gap-4 justify-center">
-                  <button
-                    type="reset"
-                    className="bg-red-600 text-white px-5 py-2 rounded-md"
-                  >
-                    Clear
-                  </button>
-                  <button
-                    type="submit"
-                    className="bg-green-600 text-white px-4 py-2 rounded-md"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
-            </div>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+                  <div className="flex gap-4 justify-center">
+                    <button
+                      type="reset"
+                      className="bg-red-600 text-white px-5 py-2 rounded-md"
+                    >
+                      Clear
+                    </button>
+                    <button
+                      type="submit"
+                      className="bg-green-600 text-white px-4 py-2 rounded-md"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 
