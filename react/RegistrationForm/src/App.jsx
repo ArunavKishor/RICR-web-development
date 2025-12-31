@@ -53,8 +53,8 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="bg-[#5A0E24] text-white text-5xl flex justify-between p-2">
-        <div className="font-semibold italic">Cheeni</div>
+      <div className="bg-sky-400 text-white text-5xl p-2">
+        <div className="font-semibold italic text-center">Registration</div>
       </div>
 
       <Routes>
@@ -62,7 +62,7 @@ const App = () => {
           path="/"
           element={
             <div className="max-w-2xl mx-auto p-6">
-              <h1 className="text-3xl font-bold text-center mb-6">
+              <h1 className="text-3xl font-semibold text-center mb-6 text-sky-400">
                 Coaching Institute Registration
               </h1>
 
@@ -191,10 +191,10 @@ const App = () => {
                   />
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex gap-4 justify-center">
                   <button
                     type="reset"
-                    className="bg-red-600 text-white px-4 py-2 rounded-md"
+                    className="bg-red-600 text-white px-5 py-2 rounded-md"
                   >
                     Clear
                   </button>
