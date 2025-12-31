@@ -53,7 +53,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* Header */}
       <div className="bg-[#5A0E24] text-white text-5xl flex justify-between p-2">
         <div className="font-semibold italic">Cheeni</div>
       </div>
@@ -93,7 +92,6 @@ const App = () => {
                   </div>
                 ))}
 
-                {/* DOB */}
                 <div className="flex gap-4 items-center">
                   <label className="w-48 font-semibold">Date of Birth</label>
                   <input
@@ -105,7 +103,6 @@ const App = () => {
                   />
                 </div>
 
-                {/* Qualification */}
                 <div className="flex gap-4 items-center">
                   <label className="w-48 font-semibold">Qualification</label>
                   <select
@@ -122,7 +119,6 @@ const App = () => {
                   </select>
                 </div>
 
-                {/* Course */}
                 <div className="flex gap-4 items-center">
                   <label className="w-48 font-semibold">Preferred Course</label>
                   <select
@@ -139,7 +135,6 @@ const App = () => {
                   </select>
                 </div>
 
-                {/* Batch */}
                 <div className="flex gap-4 items-center">
                   <label className="w-48 font-semibold">Batch Timing</label>
                   <select
@@ -156,7 +151,6 @@ const App = () => {
                   </select>
                 </div>
 
-                {/* Address (changed from textarea to input) */}
                 <div className="flex gap-4 items-center">
                   <label className="w-48 font-semibold">
                     Residential Address
@@ -168,8 +162,6 @@ const App = () => {
                     className="flex-1 border border-black p-2 rounded-md"
                   />
                 </div>
-
-                {/* Source */}
                 <div className="flex gap-4 items-center">
                   <label className="w-48 font-semibold">
                     How did you hear about us?
@@ -187,8 +179,6 @@ const App = () => {
                     <option>Social Media</option>
                   </select>
                 </div>
-
-                {/* Special Requirements (changed from textarea to input) */}
                 <div className="flex gap-4 items-center">
                   <label className="w-48 font-semibold">
                     Special Requirements
@@ -201,7 +191,6 @@ const App = () => {
                   />
                 </div>
 
-                {/* Buttons */}
                 <div className="flex gap-4">
                   <button
                     type="reset"

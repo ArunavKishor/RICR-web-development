@@ -60,7 +60,7 @@ const Contact = () => {
 
         <div className="container mx-auto max-w-lg p-6 rounded-lg">
           <form onReset={handleClearForm} onSubmit={handleSubmit}>
-            {/* Full Name */}
+            
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Full Name</label>
               <input
@@ -72,7 +72,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* Email */}
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Email</label>
               <input
@@ -84,7 +83,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* Phone */}
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Phone</label>
               <input
@@ -95,8 +93,6 @@ const Contact = () => {
                 className="flex-1 border-2 border-black p-2 rounded"
               />
             </div>
-
-            {/* City */}
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">City</label>
               <input
@@ -108,7 +104,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* Subject */}
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Subject</label>
               <input
@@ -120,7 +115,7 @@ const Contact = () => {
               />
             </div>
 
-            {/* Religion */}
+           
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Religion</label>
               <select
@@ -140,7 +135,7 @@ const Contact = () => {
               </select>
             </div>
 
-            {/* Gender */}
+          
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Gender</label>
               <div className="flex gap-6">
@@ -177,7 +172,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Skills */}
+            
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Skills</label>
               <div className="flex gap-6 flex-wrap">
@@ -196,7 +191,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Message */}
+           
             <div className="flex items-center gap-4 mb-4">
               <label className="w-28 font-semibold">Message</label>
               <textarea
@@ -207,7 +202,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* Buttons */}
             <div className="flex gap-2 mt-6">
               <button
                 type="reset"
