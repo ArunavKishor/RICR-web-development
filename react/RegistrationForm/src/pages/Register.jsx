@@ -50,12 +50,10 @@ const Register = () => {
   const validate = () => {
     let Error = {};
 
-    if (formData.fullName.length < 3) {
-      Error.fullName = "Name should be More Than 3 Characters";
-    } else {
-      if (!/^[A-Za-z ]+$/.test(formData.fullName)) {
-        Error.fullName = "Only Contain A-Z , a-z and space";
-      }
+    if (formData.fullName.trim().length < 3) {
+      Error.fullName = "Name should be more than 3 characters";
+    } else if (!/^[A-Za-z ]+$/.test(formData.fullName)) {
+      Error.fullName = "Only A-Z, a-z and space allowed";
     }
 
     if (
@@ -63,11 +61,61 @@ const Register = () => {
         formData.email
       )
     ) {
-      Error.email = "Use Proper Email Format";
+      Error.email = "Use proper email format";
     }
 
     if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) {
-      Error.mobileNumber = "Only Indian Mobile Number allowed";
+      Error.mobileNumber = "Only valid Indian mobile number allowed";
+    }
+
+    if (!formData.dateOfBirth) {
+      Error.dateOfBirth = "Date of birth is required";
+    } else {
+      const dob = new Date(formData.dateOfBirth);
+      const age = new Date().getFullYear() - dob.getFullYear();
+      if (age < 10) {
+        Error.dateOfBirth = "Age must be at least 10 years";
+      }
+    }
+
+    if (!formData.lastQualification) {
+      Error.lastQualification = "Select qualification";
+    }
+
+    if (!formData.percentageGrade.trim()) {
+      Error.percentageGrade = "Percentage or grade is required";
+    }
+
+    if (!formData.preferredCourse) {
+      Error.preferredCourse = "Select preferred course";
+    }
+
+    if (!formData.batchTiming) {
+      Error.batchTiming = "Select batch timing";
+    }
+
+    if (formData.residentialAddress.trim().length < 10) {
+      Error.residentialAddress = "Address must be at least 10 characters";
+    }
+
+    if (!/^[A-Za-z ]+$/.test(formData.city)) {
+      Error.city = "Enter valid city name";
+    }
+
+    if (!/^\d{6}$/.test(formData.pinCode)) {
+      Error.pinCode = "Enter valid 6-digit pin code";
+    }
+
+    if (!/^[A-Za-z ]+$/.test(formData.guardianName)) {
+      Error.guardianName = "Enter valid guardian name";
+    }
+
+    if (!/^[6-9]\d{9}$/.test(formData.guardianContact)) {
+      Error.guardianContact = "Enter valid guardian mobile number";
+    }
+
+    if (!formData.hearAboutUs) {
+      Error.hearAboutUs = "This field is required";
     }
 
     setValidationError(Error);
@@ -149,6 +197,11 @@ const Register = () => {
                     required
                     className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
+                  {validationError.email && (
+  <span className="text-xs text-red-500">
+    {validationError.email}
+  </span>
+)}
                   <input
                     type="tel"
                     name="mobileNumber"
@@ -159,6 +212,11 @@ const Register = () => {
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
+                  {validationError.mobileNumber && (
+  <span className="text-xs text-red-500">
+    {validationError.mobileNumber}
+  </span>
+)}
                   <input
                     type="date"
                     name="dateOfBirth"
@@ -168,6 +226,11 @@ const Register = () => {
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                 </div>
+                {validationError.dateOfBirth && (
+  <span className="text-xs text-red-500">
+    {validationError.dateOfBirth}
+  </span>
+)}
               </div>
 
               {/* Academic Details */}
@@ -189,6 +252,11 @@ const Register = () => {
                     <option value="Graduate">Graduate</option>
                     <option value="Postgraduate">Postgraduate</option>
                   </select>
+                  {validationError.lastQualification && (
+  <span className="text-xs text-red-500">
+    {validationError.lastQualification}
+  </span>
+)}
                   <input
                     type="text"
                     name="percentageGrade"
@@ -198,6 +266,11 @@ const Register = () => {
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
+                  {validationError.percentageGrade && (
+  <span className="text-xs text-red-500">
+    {validationError.percentageGrade}
+  </span>
+)}
                 </div>
               </div>
 
@@ -220,6 +293,11 @@ const Register = () => {
                     <option value="Banking Exams">Banking Exams</option>
                     <option value="UPSC">UPSC</option>
                   </select>
+                  {validationError.preferredCourse && (
+  <span className="text-xs text-red-500">
+    {validationError.preferredCourse}
+  </span>
+)}
                   <select
                     name="batchTiming"
                     value={formData.batchTiming}
@@ -233,6 +311,11 @@ const Register = () => {
                     <option value="Evening">Evening</option>
                     <option value="Weekend">Weekend</option>
                   </select>
+                  {validationError.batchTiming && (
+  <span className="text-xs text-red-500">
+    {validationError.batchTiming}
+  </span>
+)}
                 </div>
               </div>
 
