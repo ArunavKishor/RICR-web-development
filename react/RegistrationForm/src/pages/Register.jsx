@@ -325,7 +325,8 @@ const Register = () => {
                   Address
                 </h2>
                 <div className="space-y-6">
-                  <textarea
+                  <input
+                    type="text"
                     name="residentialAddress"
                     placeholder="Residential Address"
                     rows="3"
@@ -333,7 +334,12 @@ const Register = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition resize-none"
-                  ></textarea>
+                  />
+                  {validationError.residentialAddress && (
+  <span className="text-xs text-red-500">
+    {validationError.residentialAddress}
+  </span>
+)}
                   <div className="grid grid-cols-2 gap-6">
                     <input
                       type="text"
@@ -344,6 +350,11 @@ const Register = () => {
                       required
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
+                    {validationError.city && (
+  <span className="text-xs text-red-500">
+    {validationError.city}
+  </span>
+)}
                     <input
                       type="text"
                       name="pinCode"
@@ -354,6 +365,11 @@ const Register = () => {
                       required
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
+                    {validationError.pinCode && (
+  <span className="text-xs text-red-500">
+    {validationError.pinCode}
+  </span>
+)}
                   </div>
                 </div>
               </div>
@@ -373,6 +389,9 @@ const Register = () => {
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
+                  {validationError.guardianName && (
+                    <span className="text-xs text-red-500">{validationError.guardianName}</span>
+                  )}
                   <input
                     type="tel"
                     name="guardianContact"
@@ -383,6 +402,10 @@ const Register = () => {
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
+                  {validationError.guardianContact &&(
+                    <span className="text-xs text-red-500">{validationError.guardianContact}</span>
+                  )}
+                  
                 </div>
               </div>
 
@@ -406,6 +429,9 @@ const Register = () => {
                     <option value="Social Media">Social Media</option>
                     <option value="Other">Other</option>
                   </select>
+                   {validationError.hearAboutUs &&(
+                    <span className="text-xs text-red-500">{validationError.hearAboutUs}</span>
+                  )}
                   <textarea
                     name="specialRequirements"
                     placeholder="Special Requirements (optional)"
@@ -414,6 +440,7 @@ const Register = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition resize-none"
                   ></textarea>
+                 
                 </div>
               </div>
 
