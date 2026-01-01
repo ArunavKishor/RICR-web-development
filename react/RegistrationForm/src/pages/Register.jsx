@@ -198,10 +198,10 @@ const Register = () => {
                     className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                   {validationError.email && (
-  <span className="text-xs text-red-500">
-    {validationError.email}
-  </span>
-)}
+                    <span className="text-xs text-red-500">
+                      {validationError.email}
+                    </span>
+                  )}
                   <input
                     type="tel"
                     name="mobileNumber"
@@ -213,10 +213,10 @@ const Register = () => {
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                   {validationError.mobileNumber && (
-  <span className="text-xs text-red-500">
-    {validationError.mobileNumber}
-  </span>
-)}
+                    <span className="text-xs text-red-500">
+                      {validationError.mobileNumber}
+                    </span>
+                  )}
                   <input
                     type="date"
                     name="dateOfBirth"
@@ -227,10 +227,10 @@ const Register = () => {
                   />
                 </div>
                 {validationError.dateOfBirth && (
-  <span className="text-xs text-red-500">
-    {validationError.dateOfBirth}
-  </span>
-)}
+                  <span className="text-xs text-red-500">
+                    {validationError.dateOfBirth}
+                  </span>
+                )}
               </div>
 
               {/* Academic Details */}
@@ -253,10 +253,10 @@ const Register = () => {
                     <option value="Postgraduate">Postgraduate</option>
                   </select>
                   {validationError.lastQualification && (
-  <span className="text-xs text-red-500">
-    {validationError.lastQualification}
-  </span>
-)}
+                    <span className="text-xs text-red-500">
+                      {validationError.lastQualification}
+                    </span>
+                  )}
                   <input
                     type="text"
                     name="percentageGrade"
@@ -267,10 +267,10 @@ const Register = () => {
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                   {validationError.percentageGrade && (
-  <span className="text-xs text-red-500">
-    {validationError.percentageGrade}
-  </span>
-)}
+                    <span className="text-xs text-red-500">
+                      {validationError.percentageGrade}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -294,10 +294,10 @@ const Register = () => {
                     <option value="UPSC">UPSC</option>
                   </select>
                   {validationError.preferredCourse && (
-  <span className="text-xs text-red-500">
-    {validationError.preferredCourse}
-  </span>
-)}
+                    <span className="text-xs text-red-500">
+                      {validationError.preferredCourse}
+                    </span>
+                  )}
                   <select
                     name="batchTiming"
                     value={formData.batchTiming}
@@ -312,10 +312,10 @@ const Register = () => {
                     <option value="Weekend">Weekend</option>
                   </select>
                   {validationError.batchTiming && (
-  <span className="text-xs text-red-500">
-    {validationError.batchTiming}
-  </span>
-)}
+                    <span className="text-xs text-red-500">
+                      {validationError.batchTiming}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -336,10 +336,10 @@ const Register = () => {
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition resize-none"
                   />
                   {validationError.residentialAddress && (
-  <span className="text-xs text-red-500">
-    {validationError.residentialAddress}
-  </span>
-)}
+                    <span className="text-xs text-red-500">
+                      {validationError.residentialAddress}
+                    </span>
+                  )}
                   <div className="grid grid-cols-2 gap-6">
                     <input
                       type="text"
@@ -351,10 +351,10 @@ const Register = () => {
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
                     {validationError.city && (
-  <span className="text-xs text-red-500">
-    {validationError.city}
-  </span>
-)}
+                      <span className="text-xs text-red-500">
+                        {validationError.city}{" "}
+                      </span>
+                    )}
                     <input
                       type="text"
                       name="pinCode"
@@ -366,10 +366,10 @@ const Register = () => {
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                     />
                     {validationError.pinCode && (
-  <span className="text-xs text-red-500">
-    {validationError.pinCode}
-  </span>
-)}
+                      <span className="text-xs text-red-500">
+                        {validationError.pinCode}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -390,7 +390,9 @@ const Register = () => {
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
                   {validationError.guardianName && (
-                    <span className="text-xs text-red-500">{validationError.guardianName}</span>
+                    <span className="text-xs text-red-500">
+                      {validationError.guardianName}
+                    </span>
                   )}
                   <input
                     type="tel"
@@ -402,10 +404,11 @@ const Register = () => {
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
-                  {validationError.guardianContact &&(
-                    <span className="text-xs text-red-500">{validationError.guardianContact}</span>
+                  {validationError.guardianContact && (
+                    <span className="text-xs text-red-500">
+                      {validationError.guardianContact}
+                    </span>
                   )}
-                  
                 </div>
               </div>
 
@@ -429,8 +432,10 @@ const Register = () => {
                     <option value="Social Media">Social Media</option>
                     <option value="Other">Other</option>
                   </select>
-                   {validationError.hearAboutUs &&(
-                    <span className="text-xs text-red-500">{validationError.hearAboutUs}</span>
+                  {validationError.hearAboutUs && (
+                    <span className="text-xs text-red-500">
+                      {validationError.hearAboutUs}
+                    </span>
                   )}
                   <textarea
                     name="specialRequirements"
@@ -440,7 +445,6 @@ const Register = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition resize-none"
                   ></textarea>
-                 
                 </div>
               </div>
 
