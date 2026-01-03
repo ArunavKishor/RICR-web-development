@@ -120,9 +120,7 @@ const Currency = () => {
           >
             Convert
           </button>
-
           <div className="border" />
-
           <div className="flex gap-3 items-center">
             <label htmlFor="toAmt">
               Converted Amount : {toAmt ? toAmt : "XXXXXX"}
