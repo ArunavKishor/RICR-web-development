@@ -1,10 +1,16 @@
-console.log("Hello World");
+function add(a,b){
+    console.log(a+b);
+}
 
-let a=10;
-if(a%2===0){
-    console.log("Even");
-    
-}else{
-    console.log("Odd");
+function sub(a,b){
+    console.log(a-b);
     
 }
+
+function mul(a,b){
+    console.log(a*b);
+    
+}
+export default mul;
+
+export {add,sub};
