@@ -5,6 +5,17 @@ import connectDB from "./src/config/db.js";
 
 const app = express();
 
+app.use(express.json());
+
+
+
+
+
+
+
+
+
+
 app.get("/", (request, response) => {
   console.log("Server is Running");
   response.json({message:"Server is Running successfully"})
