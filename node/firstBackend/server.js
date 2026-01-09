@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/auth,AuthRouter")
+app.use("/auth",AuthRouter)
 
 app.get("/", (request, response) => {
   console.log("Server is Running");

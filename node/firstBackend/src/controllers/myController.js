@@ -49,5 +49,9 @@ export const UserLogin = async (request, response) => {
 };
 export const UserLogout = (request, response) => {
   try {
-  } catch (error) {}
+    response.status(200).json({ message: "Logout successfull" });
+  } catch (error) {
+    console.log(error);
+    response.status(500).json({ message: "Internal Server Error" });
+  }
 };
