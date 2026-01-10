@@ -7,7 +7,7 @@ export const UserRegister = async (request, response) => {
     if (!fullName || !email || !phone || !password) {
       const error = new Error("All fields Required");
       error.statusCode = 400;
-      return;
+      return next(error);
     }
 
     const existingUser = await User.findOne({ email });
