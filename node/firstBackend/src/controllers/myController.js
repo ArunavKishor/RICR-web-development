@@ -1,3 +1,4 @@
+import { request, response } from "express";
 import User from "../models/userModel.js";
 
 export const UserRegister = async (request, response, next) => {
@@ -75,3 +76,33 @@ export const UserLogout = async (request, response, next) => {
   }
 };
 
+export const UserUpdate = async (request, response, next) => {
+  try {
+    const { fullName, email, phone } = request.body;
+
+    if (!fullName || !email || !phone) {
+      const error = new Error("All Feilds Required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const existingUser = await User.findOne({ email });
+    if (!existingUser) {
+      const error = new Error("User Not Found");
+      error.statusCode = 404;
+      return next(error);
+    }
+    existingUser.fullName = fullName;
+    existingUser.phone = phone;
+
+    await existingUser.save();
+
+    response
+      .status(200)
+      .json({ message: "User Updated Successfully", data: existingUser });
+      
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
