@@ -9,6 +9,12 @@ export const UserRegister = async (request, response) => {
       return;
     }
 
+    const existingUser= await User.findOne({email});
+    if(existingUser){
+      res.status(409).json({message:"Email Already Exists"});
+      return;
+    }
+
     const newUser = await User.create({ fullName, email, phone, password });
 
     console.log(newUser);
