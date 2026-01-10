@@ -16,6 +16,13 @@ app.get("/", (request, response) => {
   response.json({ message: "Server is Running successfully" });
 });
 
+app.use((error,request,response,next)=>{
+  const ErrorMessage =error.message;
+  const StatusCode =error.statusCode;
+
+  response.status (StatusCode).json({message: "ErrorMessage"})
+})
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log("Server Started at port", port);

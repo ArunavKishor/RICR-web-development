@@ -5,13 +5,14 @@ export const UserRegister = async (request, response) => {
     const { fullName, email, phone, password } = request.body;
 
     if (!fullName || !email || !phone || !password) {
-      response.status(400).json({ message: "All fields Required" });
+      const error = new Error("All fields Required");
+      error.statusCode = 400;
       return;
     }
 
-    const existingUser= await User.findOne({email});
-    if(existingUser){
-      res.status(409).json({message:"Email Already Exists"});
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      res.status(409).json({ message: "Email Already Exists" });
       return;
     }
 
