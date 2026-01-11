@@ -1,8 +1,9 @@
 import React from "react";
 import tranparentLogo from "../assets/logotransparent.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="bg-(--primary) px-4 py-2 flex justify-between items-center">
@@ -16,28 +17,34 @@ const Header = () => {
         <div className="flex gap-4">
           <Link
             to={"/"}
-            className="text-decoration-none text-white hover:text-(--color-accent)"
+            className="text-decoration-none text-white hover:text-(--accent)"
           >
             Home
           </Link>
           <Link
             to={"/about"}
-            className="text-decoration-none text-white hover:text-(--color-accent)"
+            className="text-decoration-none text-white hover:text-(--accent)"
           >
             About
           </Link>
           <Link
             to={"/contact"}
-            className="text-decoration-none text-white hover:text-(--color-accent)"
+            className="text-decoration-none text-white hover:text-(--accent)"
           >
             Contact
           </Link>
         </div>
-        <div>
-          <button className="bg-(--color-secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded ">
+        <div className="flex gap-4">
+          <button
+            onClick={() => navigate("/Login")}
+            className="bg-(--secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded "
+          >
             Login
           </button>
-          <button className="bg-(--color-secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded ">
+          <button
+            onClick={() => navigate("/Register")}
+            className=" bg-(--secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded "
+          >
             Register
           </button>
         </div>
