@@ -1,19 +1,49 @@
-import React from 'react'
-import logotransparent from "../assets/logotransparent.png"
+import React from "react";
+import tranparentLogo from "../assets/logotransparent.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
-    <div className='bg-(--primary) px-4 py-2'>
-        <div className='flex'>
-            <img src={logotransparent} alt="" className='h-12 w-20 object-cover'/>
-            <h1 className=' text-3xl font-bold italic text-white mt-1'>CRAVING'S</h1>
+      <div className="bg-(--primary) px-4 py-2 flex justify-between items-center">
+        <Link to={"/"}>
+          <img
+            src={tranparentLogo}
+            alt=""
+            className="h-12 w-20 object-cover invert-100"
+          />
+        </Link>
+        <div className="flex gap-4">
+          <Link
+            to={"/"}
+            className="text-decoration-none text-white hover:text-(--color-accent)"
+          >
+            Home
+          </Link>
+          <Link
+            to={"/about"}
+            className="text-decoration-none text-white hover:text-(--color-accent)"
+          >
+            About
+          </Link>
+          <Link
+            to={"/contact"}
+            className="text-decoration-none text-white hover:text-(--color-accent)"
+          >
+            Contact
+          </Link>
         </div>
-    </div>
-            
-            
+        <div>
+          <button className="bg-(--color-secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded ">
+            Login
+          </button>
+          <button className="bg-(--color-secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded ">
+            Register
+          </button>
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
