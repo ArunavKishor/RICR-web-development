@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import api from "../config/Api";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     mobileNumber: "",
-    dateOfBirth: "",
-    lastQualification: "",
-    percentageGrade: "",
-    preferredCourse: "",
-    batchTiming: "",
-    residentialAddress: "",
-    city: "",
-    pinCode: "",
-    guardianName: "",
-    guardianContact: "",
-    hearAboutUs: "",
-    specialRequirements: "",
+    password: "",
+    confirmPassword: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [validationError, setValidationError] = useState({});
@@ -32,28 +23,20 @@ const Register = () => {
       fullName: "",
       email: "",
       mobileNumber: "",
-      dateOfBirth: "",
-      lastQualification: "",
-      percentageGrade: "",
-      preferredCourse: "",
-      batchTiming: "",
-      residentialAddress: "",
-      city: "",
-      pinCode: "",
-      guardianName: "",
-      guardianContact: "",
-      hearAboutUs: "",
-      specialRequirements: "",
+      password: "",
+      confirmPassword: "",
     });
   };
 
   const validate = () => {
     let Error = {};
 
-    if (formData.fullName.trim().length < 3) {
-      Error.fullName = "Name should be more than 3 characters";
-    } else if (!/^[A-Za-z ]+$/.test(formData.fullName)) {
-      Error.fullName = "Only A-Z, a-z and space allowed";
+    if (formData.fullName.length < 3) {
+      Error.fullName = "Name should be More Than 3 Characters";
+    } else {
+      if (!/^[A-Za-z ]+$/.test(formData.fullName)) {
+        Error.fullName = "Only Contain A-Z , a-z and space";
+      }
     }
 
     if (
@@ -61,61 +44,11 @@ const Register = () => {
         formData.email
       )
     ) {
-      Error.email = "Use proper email format";
+      Error.email = "Use Proper Email Format";
     }
 
     if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) {
-      Error.mobileNumber = "Only valid Indian mobile number allowed";
-    }
-
-    if (!formData.dateOfBirth) {
-      Error.dateOfBirth = "Date of birth is required";
-    } else {
-      const dob = new Date(formData.dateOfBirth);
-      const age = new Date().getFullYear() - dob.getFullYear();
-      if (age < 10) {
-        Error.dateOfBirth = "Age must be at least 10 years";
-      }
-    }
-
-    if (!formData.lastQualification) {
-      Error.lastQualification = "Select qualification";
-    }
-
-    if (!formData.percentageGrade.trim()) {
-      Error.percentageGrade = "Percentage or grade is required";
-    }
-
-    if (!formData.preferredCourse) {
-      Error.preferredCourse = "Select preferred course";
-    }
-
-    if (!formData.batchTiming) {
-      Error.batchTiming = "Select batch timing";
-    }
-
-    if (formData.residentialAddress.trim().length < 10) {
-      Error.residentialAddress = "Address must be at least 10 characters";
-    }
-
-    if (!/^[A-Za-z ]+$/.test(formData.city)) {
-      Error.city = "Enter valid city name";
-    }
-
-    if (!/^\d{6}$/.test(formData.pinCode)) {
-      Error.pinCode = "Enter valid 6-digit pin code";
-    }
-
-    if (!/^[A-Za-z ]+$/.test(formData.guardianName)) {
-      Error.guardianName = "Enter valid guardian name";
-    }
-
-    if (!/^[6-9]\d{9}$/.test(formData.guardianContact)) {
-      Error.guardianContact = "Enter valid guardian mobile number";
-    }
-
-    if (!formData.hearAboutUs) {
-      Error.hearAboutUs = "This field is required";
+      Error.mobileNumber = "Only Indian Mobile Number allowed";
     }
 
     setValidationError(Error);
@@ -123,7 +56,7 @@ const Register = () => {
     return Object.keys(Error).length > 0 ? false : true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -134,8 +67,8 @@ const Register = () => {
     }
 
     try {
-      console.log(formData);
-      toast.success("Regisrtation Successfull");
+      const res = await api.post("/auth/register", formData);
+      toast.success(res.data.message);
       handleClearForm();
     } catch (error) {
       console.log(error);
@@ -148,14 +81,14 @@ const Register = () => {
   return (
     <>
       <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-6 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Student Registration
+              Registration
             </h1>
             <p className="text-lg text-gray-600">
-              Join our academy and start your learning journey
+              You are 1 step away to stop your Cavings
             </p>
           </div>
 
@@ -168,10 +101,7 @@ const Register = () => {
             >
               {/* Personal Information */}
               <div className="mb-10">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-indigo-500">
-                  Personal Information
-                </h2>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-4">
                   <div>
                     <input
                       type="text"
@@ -197,11 +127,6 @@ const Register = () => {
                     required
                     className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
-                  {validationError.email && (
-                    <span className="text-xs text-red-500">
-                      {validationError.email}
-                    </span>
-                  )}
                   <input
                     type="tel"
                     name="mobileNumber"
@@ -212,239 +137,24 @@ const Register = () => {
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
-                  {validationError.mobileNumber && (
-                    <span className="text-xs text-red-500">
-                      {validationError.mobileNumber}
-                    </span>
-                  )}
                   <input
-                    type="date"
-                    name="dateOfBirth"
-                    value={formData.dateOfBirth}
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    placeholder="Create Password"
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
-                </div>
-                {validationError.dateOfBirth && (
-                  <span className="text-xs text-red-500">
-                    {validationError.dateOfBirth}
-                  </span>
-                )}
-              </div>
-
-              {/* Academic Details */}
-              <div className="mb-10">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-indigo-500">
-                  Academic Details
-                </h2>
-                <div className="grid grid-cols-2 gap-6">
-                  <select
-                    name="lastQualification"
-                    value={formData.lastQualification}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition bg-white"
-                  >
-                    <option value="">Select Qualification</option>
-                    <option value="10th">10th</option>
-                    <option value="12th">12th</option>
-                    <option value="Graduate">Graduate</option>
-                    <option value="Postgraduate">Postgraduate</option>
-                  </select>
-                  {validationError.lastQualification && (
-                    <span className="text-xs text-red-500">
-                      {validationError.lastQualification}
-                    </span>
-                  )}
                   <input
-                    type="text"
-                    name="percentageGrade"
-                    placeholder="Percentage/Grade"
-                    value={formData.percentageGrade}
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    value={formData.confirmPassword}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
                   />
-                  {validationError.percentageGrade && (
-                    <span className="text-xs text-red-500">
-                      {validationError.percentageGrade}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Course Information */}
-              <div className="mb-10">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-indigo-500">
-                  Course Information
-                </h2>
-                <div className="grid grid-cols-2 gap-6">
-                  <select
-                    name="preferredCourse"
-                    value={formData.preferredCourse}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition bg-white"
-                  >
-                    <option value="">Select Course</option>
-                    <option value="IIT-JEE">IIT-JEE</option>
-                    <option value="NEET">NEET</option>
-                    <option value="Banking Exams">Banking Exams</option>
-                    <option value="UPSC">UPSC</option>
-                  </select>
-                  {validationError.preferredCourse && (
-                    <span className="text-xs text-red-500">
-                      {validationError.preferredCourse}
-                    </span>
-                  )}
-                  <select
-                    name="batchTiming"
-                    value={formData.batchTiming}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition bg-white"
-                  >
-                    <option value="">Select Batch Timing</option>
-                    <option value="Morning">Morning</option>
-                    <option value="Afternoon">Afternoon</option>
-                    <option value="Evening">Evening</option>
-                    <option value="Weekend">Weekend</option>
-                  </select>
-                  {validationError.batchTiming && (
-                    <span className="text-xs text-red-500">
-                      {validationError.batchTiming}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Address */}
-              <div className="mb-10">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-indigo-500">
-                  Address
-                </h2>
-                <div className="space-y-6">
-                  <input
-                    type="text"
-                    name="residentialAddress"
-                    placeholder="Residential Address"
-                    rows="3"
-                    value={formData.residentialAddress}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition resize-none"
-                  />
-                  {validationError.residentialAddress && (
-                    <span className="text-xs text-red-500">
-                      {validationError.residentialAddress}
-                    </span>
-                  )}
-                  <div className="grid grid-cols-2 gap-6">
-                    <input
-                      type="text"
-                      name="city"
-                      placeholder="City"
-                      value={formData.city}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                    />
-                    {validationError.city && (
-                      <span className="text-xs text-red-500">
-                        {validationError.city}{" "}
-                      </span>
-                    )}
-                    <input
-                      type="text"
-                      name="pinCode"
-                      placeholder="Pin Code"
-                      maxLength="6"
-                      value={formData.pinCode}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                    />
-                    {validationError.pinCode && (
-                      <span className="text-xs text-red-500">
-                        {validationError.pinCode}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Guardian Details */}
-              <div className="mb-10">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-indigo-500">
-                  Guardian Details
-                </h2>
-                <div className="grid grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    name="guardianName"
-                    placeholder="Guardian's Full Name"
-                    value={formData.guardianName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                  />
-                  {validationError.guardianName && (
-                    <span className="text-xs text-red-500">
-                      {validationError.guardianName}
-                    </span>
-                  )}
-                  <input
-                    type="tel"
-                    name="guardianContact"
-                    placeholder="Guardian's Contact Number"
-                    maxLength="10"
-                    value={formData.guardianContact}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                  />
-                  {validationError.guardianContact && (
-                    <span className="text-xs text-red-500">
-                      {validationError.guardianContact}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Additional Information */}
-              <div className="mb-10">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-indigo-500">
-                  Additional Information
-                </h2>
-                <div className="space-y-6">
-                  <select
-                    name="hearAboutUs"
-                    value={formData.hearAboutUs}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition bg-white"
-                  >
-                    <option value="">How did you hear about us?</option>
-                    <option value="Friends">Friends</option>
-                    <option value="Online Ad">Online Ad</option>
-                    <option value="Newspaper">Newspaper</option>
-                    <option value="Social Media">Social Media</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  {validationError.hearAboutUs && (
-                    <span className="text-xs text-red-500">
-                      {validationError.hearAboutUs}
-                    </span>
-                  )}
-                  <textarea
-                    name="specialRequirements"
-                    placeholder="Special Requirements (optional)"
-                    rows="3"
-                    value={formData.specialRequirements}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition resize-none"
-                  ></textarea>
                 </div>
               </div>
 
