@@ -2,7 +2,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
-import cors from "cros";
+import cors from "cors";
+import morgon from "morgan"
 import conectDB from "./src/config/db.js";
 import Authrouter from "./src/routers/authrouter.js";
 
@@ -10,6 +11,7 @@ const app = express();
 
 app.use(cors({ orign: "http://localhost:5173" }));
 app.use(express.json());
+app.use (morgon("dev"));
 
 app.use("/auth", Authrouter);
 

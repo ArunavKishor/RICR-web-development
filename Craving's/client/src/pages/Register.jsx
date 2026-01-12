@@ -170,7 +170,6 @@ const Register = () => {
 
               {/* Submit Button */}
               <div className="flex gap-4 pt-8 border-t-2 border-gray-200">
-               
                 <button
                   type="reset"
                   disabled={isLoading}
@@ -180,7 +179,7 @@ const Register = () => {
                 >
                   Clear Form
                 </button>
-                 <button
+                <button
                   type="submit"
                   disabled={isLoading}
                   className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 
@@ -188,7 +187,7 @@ const Register = () => {
                   transform hover:scale-105 shadow-lg disabled:cursor-not-allowed  disabled:bg-gray-400 
                   disabled:scale-100 "
                 >
-                  {isLoading?"Submiting":"Submit"}
+                  {isLoading ? "Submiting" : "Submit"}
                 </button>
               </div>
             </form>
