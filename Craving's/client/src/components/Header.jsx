@@ -13,6 +13,7 @@ const Header = () => {
             alt=""
             className="h-12 w-20 object-cover invert-100"
           />
+          <h1 className="text-white ml-2">Craving's</h1>
         </Link>
         <div className="flex gap-4">
           <Link
