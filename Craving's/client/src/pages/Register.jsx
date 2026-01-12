@@ -19,7 +19,7 @@ const Register = () => {
   };
 
   const handleClearForm = () => {
-    setFormData({
+    setFormData({ 
       fullName: "",
       email: "",
       mobileNumber: "",
