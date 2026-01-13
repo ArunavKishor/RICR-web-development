@@ -4,7 +4,7 @@ import { UserLogin,UserRegister,UserLogout } from "../controller/authController.
 const router = express.Router();
 
 router.post("/register", UserRegister);
-router.post("/loginr", UserLogin);
+router.post("/login", UserLogin);
 router.get("/logout", UserLogout);
 
 export default router;
