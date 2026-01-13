@@ -3,6 +3,8 @@ import bcrypt from "bcrypt";
 
 export const UserRegister = async (req, res, next) => {
   try {
+    console.log(req.body);
+    
     //fetched data from frontend
     const { fullName, email, mobileNumber, password } = req.body;
 
@@ -21,10 +23,14 @@ export const UserRegister = async (req, res, next) => {
       return next(error);
     }
 
+    console.log("sending data to DB");
+    
     //encrypt the password
     const salt = await bcrypt.genSalt(10); // just to incryp[t the password 10 times
     const hashedpassword = await bcrypt.hash(password, salt);
 
+    console.log("password hashing done .hashedpassword=" ,hashedpassword);
+    
     //save data to database
     const newUser = await User.create({
       fullName,
