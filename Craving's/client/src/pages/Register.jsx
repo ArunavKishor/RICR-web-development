@@ -66,6 +66,8 @@ const Register = () => {
       return;
     }
 
+    console.log(formData);//testing
+    
     try {
       const res = await api.post("/auth/register", formData);
       toast.success(res.data.message);
