@@ -47,7 +47,7 @@ export const UserRegister = async (req, res, next) => {
     next(error);
   }
 };
-export const UserLogin = async (req, resizeBy, next) => {
+export const UserLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
