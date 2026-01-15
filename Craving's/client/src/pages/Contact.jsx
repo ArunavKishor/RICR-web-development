@@ -28,7 +28,7 @@ const Contact = () => {
 
 
     try {
-      const res = await api.post("/contact/newcontact", formData);
+      const res = await api.post("/public/new-contact", formData);
       toast.success(res.data.message);
     } catch (error) {
       console.log(error);
