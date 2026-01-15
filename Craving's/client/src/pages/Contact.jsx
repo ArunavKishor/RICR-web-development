@@ -22,12 +22,13 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    console.log(formData);
 
     setIsLoading(true);
 
+
     try {
-      const res = await api.post("/auth/contact", formData);
+      const res = await api.post("/contact/newcontact", formData);
       toast.success(res.data.message);
     } catch (error) {
       console.log(error);

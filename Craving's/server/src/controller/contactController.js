@@ -9,6 +9,8 @@ export const UserRegister = async (req, res, next) => {
 
     //verified that data
     if (!fullName || !email || !contact) {
+      console.log("value aa rahi hai ");
+      
       const error = new Error("All Fildes Required");
       error.statusCode = 400;
       return next(error);

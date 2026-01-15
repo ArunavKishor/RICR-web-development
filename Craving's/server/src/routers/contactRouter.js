@@ -3,6 +3,6 @@ import Contact from "../models/contactModel.js";
 
 const router = express.Router();
 
-router.post("/contact", Contact);
+router.post("/newcontact", Contact);
 
 export default router;
