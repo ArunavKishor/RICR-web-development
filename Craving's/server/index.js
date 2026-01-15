@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(morgon("dev"));
 
 app.use("/auth", Authrouter);
-app.use("/contact", Contact);
+app.use("/Public", PublicRouter);
 
 app.get("/", (req, res) => {
   console.log("server is working");

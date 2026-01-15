@@ -28,7 +28,7 @@ export const UserRegister = async (req, res, next) => {
     
    
     //save data to database
-    const newUser = await Contact.create({
+    const newContact = await Contact.create({
       fullName,
       email,
       message,
