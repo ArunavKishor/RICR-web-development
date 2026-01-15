@@ -6,6 +6,7 @@ import cors from "cors";
 import morgon from "morgan";
 import conectDB from "./src/config/db.js";
 import Authrouter from "./src/routers/authrouter.js";
+import Contact from "./src/routers/contactRouter.js";
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(morgon("dev"));
 
 app.use("/auth", Authrouter);
+app.use("/auth", Contact);
 
 app.get("/", (req, res) => {
   console.log("server is working");
