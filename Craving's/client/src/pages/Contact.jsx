@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import api from "../config/Api";
-import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    email: "",
     fullName: "",
-    message: "",
+    email: "",
+    mobileNumber: "",
+    enquire: "",
   });
-
-  const navigate = useNavigate();
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [validationError, setValidationError] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,39 +18,47 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-
-    setIsLoading(true);
-
 
     try {
-      const res = await api.post("/public/new-contact", formData);
+      const res = await api.post("/public/newcontact", formData);
       toast.success(res.data.message);
     } catch (error) {
       console.log(error);
       toast.error(error.message);
-    } finally {
-      setIsLoading(false);
     }
-
-    navigate("/");
   };
 
   return (
     <>
       <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-6 px-4">
         <div className="max-w-xl mx-auto">
+          {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Contact Us
-            </h1>
-            <p className="text-lg text-gray-600">How we can help you</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">Contact</h1>
+            <p className="text-lg text-gray-600">Post your Query</p>
           </div>
 
+          {/* Form Container */}
           <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
             <form onSubmit={handleSubmit} className="p-8">
+              {/* Personal Information */}
               <div className="mb-10">
                 <div className="space-y-4">
+                  <div>
+                    <input
+                      type="text"
+                      name="fullName"
+                      placeholder="full Name"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      required
+                      className="w-full h-fit px-4 py-3 border-2
+                       border-gray-300 rounded-lg focus:outline-none
+                       focus:border-indigo-500 hover:border-indigo-300 
+                       transition duration-300 transform hover:scale-102 disabled:cursor-not-allowed
+                       disabled:scale-100 disabled:bg-gray-200 "
+                    />
+                  </div>
                   <input
                     type="email"
                     name="email"
@@ -62,51 +66,58 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    disabled={isLoading}
                     className="w-full h-fit px-4 py-3 border-2
                      border-gray-300 rounded-lg focus:outline-none
                      focus:border-indigo-500 hover:border-indigo-300
                      transition duration-300 transform hover:scale-102 disabled:cursor-not-allowed
                      disabled:scale-100 disabled:bg-gray-200"
                   />
-
                   <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    placeholder="Full Name"
+                    type="tel"
+                    name="mobileNumber"
+                    placeholder="Mobile Number"
+                    maxLength="10"
+                    value={formData.mobileNumber}
                     onChange={handleChange}
                     required
-                    disabled={isLoading}
                     className="w-full h-fit px-4 py-3 border-2
                      border-gray-300 rounded-lg focus:outline-none
                      focus:border-indigo-500 hover:border-indigo-300
                      transition duration-300 transform hover:scale-102 disabled:cursor-not-allowed
                      disabled:scale-100 disabled:bg-gray-200"
                   />
-
-                  {/* FIXED MESSAGE FIELD */}
                   <input
                     type="text"
-                    name="message"
-                    value={formData.message}
-                    placeholder="Describe yourself"
+                    name="city"
+                    placeholder="City"
+                    value={formData.city}
                     onChange={handleChange}
                     required
-                    disabled={isLoading}
-                    className="w-full h-[100px] px-4 py-3 border-2
-                     border-gray-300 rounded-lg focus:outline-none
-                     focus:border-indigo-500 hover:border-indigo-300
-                     transition duration-300 transform hover:scale-102 disabled:cursor-not-allowed
-                     disabled:scale-100 disabled:bg-gray-200"
+                    className="w-full h-fit px-4 py-3 border-2
+                       border-gray-300 rounded-lg focus:outline-none
+                       focus:border-indigo-500 hover:border-indigo-300 
+                       transition duration-300 transform hover:scale-102 disabled:cursor-not-allowed
+                       disabled:scale-100 disabled:bg-gray-200 "
                   />
+
+                  <textarea
+                    name="enquire"
+                    placeholder="About your query"
+                    value={formData.enquire}
+                    onChange={handleChange}
+                    className="w-full h-fit px-4 py-3 border-2
+                       border-gray-300 rounded-lg focus:outline-none
+                       focus:border-indigo-500 hover:border-indigo-300 
+                       transition duration-300 transform hover:scale-102 disabled:cursor-not-allowed
+                       disabled:scale-100 disabled:bg-gray-200 "
+                  ></textarea>
                 </div>
               </div>
 
+              {/* Submit Button */}
               <div className="flex gap-4 pt-8 border-t-2 border-gray-200">
                 <button
                   type="reset"
-                  disabled={isLoading}
                   className="flex-1 bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-lg
                    hover:text-white hover:bg-gray-400 transition
                     duration-300 transform hover:scale-105 disabled:cursor-not-allowed
@@ -117,18 +128,18 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  disabled={isLoading}
                   className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700
                   text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700
                   hover:to-indigo-800 transition duration-300 transform hover:scale-105
                     shadow-lg disabled:cursor-not-allowed disabled:scale-100 disabled:bg-indigo-600"
                 >
-                  {isLoading ? "Submitting" : "Submit"}
+                Submit
                 </button>
               </div>
             </form>
           </div>
 
+          {/* Footer Note */}
           <p className="text-center text-gray-600 mt-8 text-sm">
             All fields marked are mandatory. We respect your privacy.
           </p>
