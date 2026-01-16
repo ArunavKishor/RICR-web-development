@@ -1,5 +1,5 @@
 import express from 'express';
-import {Newcontact} from "../controllers/newContact.js"
+import {Newcontact} from "../controller/newContact.js"
 const Router = express.Router();
 
 Router.post('/newcontact', Newcontact);

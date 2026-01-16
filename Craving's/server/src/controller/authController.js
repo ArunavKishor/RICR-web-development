@@ -10,6 +10,8 @@ export const UserRegister = async (req, res, next) => {
 
     //verified that data
     if (!fullName || !email || !mobileNumber || !password) {
+      console.log("data aaa raha hai");
+      
       const error = new Error("All Fildes Required");
       error.statusCode = 400;
       return next(error);

@@ -20,7 +20,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const res = await api.post("/public/newcontact", formData);
+      const res = await api.post("/public/newContact", formData);
       toast.success(res.data.message);
     } catch (error) {
       console.log(error);

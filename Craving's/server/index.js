@@ -15,7 +15,7 @@ app.use(morgan("dev"));
 
 app.use("/auth", Authrouter);
 
-app.use("/contact", newcontact);
+app.use("/public", newcontact);
 
 app.get("/", (req, res) => {
   console.log("server is working");
