@@ -4,12 +4,12 @@ import api from "../config/Api";
 import {useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email:"",
     password:""
   });
 
-  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
   const [validationError, setValidationError] = useState({});
@@ -26,6 +26,8 @@ const Login = () => {
     try {
       const res = await api.post("/auth/login",formData)
       toast.success(res.data.message);
+      handleClearForm();
+      navigate("/user-dashbord")
     } catch (error) {
       console.log(error);
       toast.error(error.message);
