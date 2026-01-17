@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import UserDashboard from "./pages/dashboards/UserDashboard";
+import UserDashboard from "./pages/dashbords/UserDashBoard";
 
 const App = () => {
   return (

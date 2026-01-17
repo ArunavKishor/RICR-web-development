@@ -41,7 +41,7 @@ const Register = () => {
 
     if (
       !/^[\w\.]+@(gmail|outlook|ricr|yahoo)\.(com|in|co.in)$/.test(
-        formData.email
+        formData.email,
       )
     ) {
       Error.email = "Use Proper Email Format";
@@ -65,7 +65,7 @@ const Register = () => {
       toast.error("Fill the Form Correctly");
       return;
     }
-console.log(formData);
+    console.log(formData);
 
     try {
       const res = await api.post("/auth/register", formData);
@@ -73,7 +73,7 @@ console.log(formData);
       handleClearForm();
     } catch (error) {
       console.log(error);
-      toast.error(error?.response?.data?.message||"Unknown Error");
+      toast.error(error?.response?.data?.message || "Unknown Error");
     } finally {
       setIsLoading(false);
     }
@@ -89,7 +89,7 @@ console.log(formData);
               Registration
             </h1>
             <p className="text-lg text-gray-600 italic">
-            Just one step away from your cravings!
+              Just one step away from your cravings!
             </p>
           </div>
 
