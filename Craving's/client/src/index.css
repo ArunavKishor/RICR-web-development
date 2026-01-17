@@ -3,13 +3,13 @@
 :root {
   /* primary */
   --primary: #540863;
-  --primary-hover: #92487A;
+  --primary-hover: #92487a;
   /* secondery */
-  --secondary: #92487A;
-  --secondary-hover: #E49BA6;
+  --secondary: #92487a;
+  --secondary-hover: #e49ba6;
   /* text */
   --text: #540863;
   /* background */
-  --background: #FFD3D5;
-  --accent: #E49BA6;
+  --background: #ffd3d5;
+  --accent: #e49ba6;
 }

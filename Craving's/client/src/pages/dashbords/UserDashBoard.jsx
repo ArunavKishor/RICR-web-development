@@ -8,13 +8,22 @@ import HelpDesk from "../../components/userDashboard/UserHelpDex";
 
 const UserDashboard = () => {
   const [active, setActive] = useState("overview");
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <>
-      <div className="w-full flex  h-[90vh]">
-        <div className=" w-2/11 bg-(--color-background)">
-          <Sidebar active={active} setActive={setActive} />
+      <div className="w-full flex h-[90vh]">
+        <div
+          className={`bg-(--background) ${collapsed ? "w-[5%]" : "w-[20%]"}`}
+        >
+          <Sidebar
+            active={active}
+            setActive={setActive}
+            collapsed={collapsed}
+            setCollapsed={setCollapsed}
+          />
         </div>
-        <div className=" w-9/11">
+        <div className={`${collapsed ? "w-[95%]" : "w-[80%]"}`}>
           {active === "overview" && <Overview />}
           {active === "profile" && <Profile />}
           {active === "order" && <Order />}

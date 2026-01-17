@@ -11,9 +11,9 @@ const Header = () => {
           <img
             src={tranparentLogo}
             alt=""
-            className="h-12 w-20 object-cover invert-100"
+            className="h-12 w-20 object-cover "
           />
-          <h1 className="text-white ml-2">Craving's</h1>
+          <h1 className="text-white ml-2.5">Craving's</h1>
         </Link>
         <div className="flex gap-4">
           <Link
