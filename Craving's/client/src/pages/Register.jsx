@@ -65,16 +65,15 @@ const Register = () => {
       toast.error("Fill the Form Correctly");
       return;
     }
+console.log(formData);
 
-    console.log(formData);//testing
-    
     try {
       const res = await api.post("/auth/register", formData);
       toast.success(res.data.message);
       handleClearForm();
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
+      toast.error(error?.response?.data?.message||"Unknown Error");
     } finally {
       setIsLoading(false);
     }
@@ -89,8 +88,8 @@ const Register = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Registration
             </h1>
-            <p className="text-lg text-gray-600">
-              You are 1 step away to stop your Cavings
+            <p className="text-lg text-gray-600 italic">
+            Just one step away from your cravings!
             </p>
           </div>
 
@@ -113,8 +112,7 @@ const Register = () => {
                       onChange={handleChange}
                       required
                       disabled={isLoading}
-                      className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none
-                       focus:border-indigo-500 transition disabled:cursor-not-allowed  disabled:bg-gray-300"
+                      className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                     />
                     {validationError.fullName && (
                       <span className="text-xs text-red-500">
@@ -130,8 +128,7 @@ const Register = () => {
                     onChange={handleChange}
                     required
                     disabled={isLoading}
-                    className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none
-                     focus:border-indigo-500 transition disabled:cursor-not-allowed  disabled:bg-gray-300"
+                    className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
                   <input
                     type="tel"
@@ -142,8 +139,7 @@ const Register = () => {
                     onChange={handleChange}
                     required
                     disabled={isLoading}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none
-                     focus:border-indigo-500 transition disabled:cursor-not-allowed  disabled:bg-gray-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
                   <input
                     type="password"
@@ -153,8 +149,7 @@ const Register = () => {
                     onChange={handleChange}
                     required
                     disabled={isLoading}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none
-                     focus:border-indigo-500 transition disabled:cursor-not-allowed  disabled:bg-gray-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
                   <input
                     type="password"
@@ -164,8 +159,7 @@ const Register = () => {
                     onChange={handleChange}
                     required
                     disabled={isLoading}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none
-                     focus:border-indigo-500 transition disabled:cursor-not-allowed  disabled:bg-gray-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
                 </div>
               </div>
@@ -175,21 +169,16 @@ const Register = () => {
                 <button
                   type="reset"
                   disabled={isLoading}
-                  className="flex-1 bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-lg hover:bg-gray-400 
-                  transition duration-300 transform hover:scale-105 disabled:cursor-not-allowed  disabled:bg-gray-400
-                  disabled:scale-100"
+                  className="flex-1 bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-lg hover:bg-gray-400 transition duration-300 transform hover:scale-105 disabled:scale-100 disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   Clear Form
                 </button>
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 
-                  px-6 rounded-lg hover:from-indigo-700 hover:to-indigo-800 transition duration-300 
-                  transform hover:scale-105 shadow-lg disabled:cursor-not-allowed  disabled:bg-gray-400 
-                  disabled:scale-100 "
+                  className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700 hover:to-indigo-800 transition duration-300 transform hover:scale-105 shadow-lg disabled:scale-100 disabled:bg-gray-300  disabled:cursor-not-allowed"
                 >
-                  {isLoading ? "Submiting" : "Submit"}
+                  {isLoading ? "Submitting" : "Submit"}
                 </button>
               </div>
             </form>
