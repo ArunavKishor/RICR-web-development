@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "./components/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
 import About from "./pages/About";
+import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
-import Register from "./pages/register";
+import Register from "./pages/Register";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import UserDashBord from "./pages/dashbords/UserDashBord";
+import UserDashboard from "./pages/dashboards/UserDashboard";
 
 const App = () => {
   return (
@@ -15,15 +15,15 @@ const App = () => {
       <BrowserRouter>
       <Toaster/>
         <Header />
-
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/user-dashbord" element={<UserDashBord />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/user-dashboard" element={<UserDashboard/>}/>
         </Routes>
+        <h1></h1>
       </BrowserRouter>
     </>
   );
