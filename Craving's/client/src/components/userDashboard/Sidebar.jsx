@@ -6,17 +6,16 @@ import { TbChartTreemap } from "react-icons/tb";
 import { MdShoppingCart } from "react-icons/md";
 import { TbTransactionRupee } from "react-icons/tb";
 
-const Sidebar = ({ active, setActive }) => {
-  const [collapsed, setCollapsed] = useState(false);
+const Sidebar = ({ active, setActive, collapsed, setCollapsed }) => {
   return (
     <>
       <div className={`p-2 ${collapsed ? "w-[5%]" : "w-full"}`}>
         <div className="text-xl font-bold p-2 flex gap-3 items-center">
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="flex items-center gap-3"
+            className="flex items-center gap-3 hover:scale-105"
           >
-            <RxHamburgerMenu />
+            <RxHamburgerMenu className="ms-3.5" />
           </button>
           {!collapsed && <span>User Dashboard</span>}
         </div>
@@ -54,7 +53,7 @@ const Sidebar = ({ active, setActive }) => {
             onClick={() => setActive("order")}
           >
             <MdShoppingCart />
-           {!collapsed && "Orders"}
+            {!collapsed && "Orders"}
           </button>
           <button
             className={`flex gap-3 items-center  p-3 rounded-xl ${
