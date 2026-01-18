@@ -15,7 +15,7 @@ const Header = () => {
           />
           <h1 className="text-white ml-2.5">Craving's</h1>
         </Link>
-        <div className="flex gap-4">
+        <div className="flex gap-4 ml-27">
           <Link
             to={"/"}
             className="text-decoration-none text-white hover:text-(--accent)"
