@@ -1,87 +1,62 @@
-import React, { useState } from "react";
-import { CgProfile } from "react-icons/cg";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { RxHamburgerMenu } from "react-icons/rx";
+import React from "react";
 import { TbChartTreemap } from "react-icons/tb";
-import { MdShoppingCart } from "react-icons/md";
+import { ImProfile } from "react-icons/im";
+import { TiShoppingCart } from "react-icons/ti";
 import { TbTransactionRupee } from "react-icons/tb";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { GiHamburgerMenu } from "react-icons/gi";
 
-const Sidebar = ({ active, setActive, collapsed, setCollapsed }) => {
+const UserSideBar = ({ active, setActive, isCollapsed, setIsCollapsed }) => {
+  const menuItems = [
+    { key: "overview", title: "OverView", icon: <TbChartTreemap /> },
+    { key: "profile", title: "Profile", icon: <ImProfile /> },
+    { key: "orders", title: "Orders", icon: <TiShoppingCart /> },
+    {
+      key: "transactions",
+      title: "Transactions",
+      icon: <TbTransactionRupee />,
+    },
+    { key: "helpdesk", title: "Help Desk", icon: <RiCustomerService2Fill /> },
+  ];
+
   return (
     <>
-      <div className={`p-2 ${collapsed ? "w-[5%]" : "w-full"}`}>
-        <div className="text-xl font-bold p-2 flex gap-3 items-center">
+      <div className="p-2">
+        <div className="h-10 text-xl font-bold flex gap-5 items-center mb-3">
           <button
-            onClick={() => setCollapsed(!collapsed)}
-            className="flex items-center gap-3 hover:scale-105"
+            className="ms-2 hover:scale-105"
+            onClick={() => setIsCollapsed(!isCollapsed)}
           >
-            <RxHamburgerMenu className="ms-3.5" />
-          </button>
-          {!collapsed && <span>User Dashboard</span>}
+            <GiHamburgerMenu />
+          </button>{" "}
+          {!isCollapsed && (
+            <span className="overflow-hidden text-nowrap">User Dashboard</span>
+          )}
         </div>
         <hr />
-        <div className="grid gap-3 p-3 ">
-          <button
-            className={`flex gap-3 items-center  p-3 rounded-xl ${
-              active === "overview"
-                ? "bg-(--secondary) text-white"
-                : "hover:bg-gray-100/70"
-            }`}
-            onClick={() => setActive("overview")}
-          >
-            <TbChartTreemap />
-            {!collapsed && "Overview"}
-          </button>
-          <button
-            className={`flex gap-3 items-center  p-3 rounded-xl ${
-              active === "profile"
-                ? "bg-(--secondary) text-white"
-                : "hover:bg-gray-100/70"
-            }`}
-            onClick={() => setActive("profile")}
-          >
-            {" "}
-            <CgProfile />
-            {!collapsed && "Profile"}
-          </button>
-          <button
-            className={`flex gap-3 items-center  p-3 rounded-xl ${
-              active === "order"
-                ? "bg-(--secondary) text-white"
-                : "hover:bg-gray-100/70"
-            }`}
-            onClick={() => setActive("order")}
-          >
-            <MdShoppingCart />
-            {!collapsed && "Orders"}
-          </button>
-          <button
-            className={`flex gap-3 items-center  p-3 rounded-xl ${
-              active === "transaction"
-                ? "bg-(--secondary) text-white"
-                : "hover:bg-gray-100/70"
-            }`}
-            onClick={() => setActive("transaction")}
-          >
-            <TbTransactionRupee />
-            {!collapsed && "Transactions"}
-          </button>
-          <button
-            className={`flex gap-3 items-center  p-3 rounded-xl ${
-              active === "helpdesk"
-                ? "bg-(--secondary) text-white"
-                : "hover:bg-gray-100/70"
-            }`}
-            onClick={() => setActive("helpdesk")}
-          >
-            {" "}
-            <RiCustomerService2Fill />
-            {!collapsed && "Help Desk"}
-          </button>
+
+        <div className="py-6 space-y-5 w-full">
+          {menuItems.map((item, idx) => (
+            <button
+              className={`flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300
+                ${
+                  active === item.key
+                    ? "bg-(--color-secondary) text-white"
+                    : "hover:bg-gray-100/70 "
+                } 
+              `}
+              onClick={() => setActive(item.key)}
+              key={idx}
+            >
+              {" "}
+              {item.icon}
+              {!isCollapsed && item.title}
+            </button>
+          ))}
         </div>
       </div>
     </>
   );
 };
 
-export default Sidebar;
+export default UserSideBar;
