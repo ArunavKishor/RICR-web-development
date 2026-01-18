@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import UserSideBar from "../../components/userDashboard/UserSideBar";
-import UserOverview from "../../components/userDashboard/userOverview";
+import UserSideBar from "../../components/userDashboard/Sidebar";
+import UserOverview from "../../components/userDashboard/UserOverview";
 import UserProfile from "../../components/userDashboard/UserProfile";
-import UserOrders from "../../components/userDashboard/UserOrders";
-import UserTransactions from "../../components/userDashboard/userTransactions";
+import UserOrders from "../../components/userDashboard/UserOrder";
+import UserTransactions from "../../components/userDashboard/UserTransaction";
 import UserHelpDesk from "../../components/userDashboard/UserHelpDesk";
 
 const UserDashboard = () => {
