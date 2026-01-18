@@ -1,34 +1,34 @@
 import React, { useState } from "react";
-import Sidebar from "../../components/userDashboard/Sidebar";
-import Overview from "../../components/userDashboard/UserOverview";
-import Profile from "../../components/userDashboard/UserProfile";
-import Order from "../../components/userDashboard/UserOrder";
-import Transaction from "../../components/userDashboard/UserTransaction";
-import HelpDesk from "../../components/userDashboard/UserHelpDex";
+import UserSideBar from "../../components/userDashboard/UserSideBar";
+import UserOverview from "../../components/userDashboard/userOverview";
+import UserProfile from "../../components/userDashboard/UserProfile";
+import UserOrders from "../../components/userDashboard/UserOrders";
+import UserTransactions from "../../components/userDashboard/userTransactions";
+import UserHelpDesk from "../../components/userDashboard/UserHelpDesk";
 
 const UserDashboard = () => {
   const [active, setActive] = useState("overview");
-  const [collapsed, setCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
     <>
-      <div className="w-full flex h-[90vh]">
+      <div className="w-full h-[90vh] flex">
         <div
-          className={`bg-(--background) ${collapsed ? "w-[5%]" : "w-[20%]"}`}
+          className={`bg-(--background) duration-300 ${isCollapsed ? "w-2/60" : "w-12/60"}`}
         >
-          <Sidebar
+          <UserSideBar
             active={active}
             setActive={setActive}
-            collapsed={collapsed}
-            setCollapsed={setCollapsed}
+            isCollapsed={isCollapsed}
+            setIsCollapsed={setIsCollapsed}
           />
         </div>
-        <div className={`${collapsed ? "w-[95%]" : "w-[80%]"}`}>
-          {active === "overview" && <Overview />}
-          {active === "profile" && <Profile />}
-          {active === "order" && <Order />}
-          {active === "transaction" && <Transaction />}
-          {active === "helpdesk" && <HelpDesk />}
+        <div className={`${isCollapsed ? "w-58/60" : "w-48/60"} duration-300`}>
+          {active === "overview" && <UserOverview />}
+          {active === "profile" && <UserProfile />}
+          {active === "orders" && <UserOrders />}
+          {active === "transactions" && <UserTransactions />}
+          {active === "helpdesk" && <UserHelpDesk />}
         </div>
       </div>
     </>
