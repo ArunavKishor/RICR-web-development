@@ -1,5 +1,9 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
+import { genToken } from "../utils/authToken.js";
+
+
+
 export const UserRegister = async (req, res, next) => {
   try {
     //accept data from frontend
@@ -61,7 +65,8 @@ export const UserLogin = async (req, res, next) => {
       return next(error);
     }
 
-    //se
+    genToken(existingUser,res);
+
     res.status(200).json({ message: "Login Succesfull", data: existingUser });
   } catch (error) {
     next(error);
