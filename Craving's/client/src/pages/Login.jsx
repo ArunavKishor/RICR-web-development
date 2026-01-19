@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-
-  const {setUser,setIsLogin}=useAuth();
+  const { setUser, setIsLogin } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -30,11 +29,11 @@ const Login = () => {
   };
 
   const validate = () => {
-    let Error = {}; 
+    let Error = {};
 
     if (
       !/^[\w\.]+@(gmail|outlook|ricr|yahoo)\.(com|in|co.in)$/.test(
-        formData.email
+        formData.email,
       )
     ) {
       Error.email = "Use Proper Email Format";
@@ -59,9 +58,9 @@ const Login = () => {
     try {
       const res = await api.post("/auth/login", formData);
       toast.success(res.data.message);
-      setUser(res.data.data)
+      setUser(res.data.data);
       setIsLogin(true);
-      sessionStorage.setItem("Cra")
+      sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));
       handleClearForm();
       navigate("/user-dashboard");
     } catch (error) {
