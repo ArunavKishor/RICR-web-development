@@ -57,9 +57,11 @@ export const UserLogin = async (req, res, next) => {
     const isVerified = await bcrypt.compare(password, existingUser.password);
     if (!isVerified) {
       const error = new Error("Password did not match");
-      error.statusCode = 402;
+      error.statusCode = 401;
       return next(error);
     }
+
+    //se
     res.status(200).json({ message: "Login Succesfull", data: existingUser });
   } catch (error) {
     next(error);
