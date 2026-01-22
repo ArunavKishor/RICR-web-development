@@ -38,7 +38,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex gap-4">
-          {isLogin ? (
+          {isLogin ? (//if user found show the name if not show to buttos login and register button
             <span className="text-white">{user.fullName}</span>
           ) : (
             <>
