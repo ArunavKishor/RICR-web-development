@@ -56,13 +56,13 @@ const Login = () => {
     console.log(formData);
 
     try {
-      const res = await api.post("/auth/login", formData);//data reach be
-      toast.success(res.data.message);//response be
-      setUser(res.data.data);//conectivity
+      const res = await api.post("/auth/login", formData); //data reach be
+      toast.success(res.data.message); //response be
+      setUser(res.data.data); //conectivity
       setIsLogin(true);
-      sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));//backup
+      sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data)); //backup
       handleClearForm();
-      navigate("/user-dashboard");//data to user dashbord
+      navigate("/user-dashboard"); //data to user dashbord
     } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.message || "Unknown Error");
