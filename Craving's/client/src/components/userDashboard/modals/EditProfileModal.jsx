@@ -19,19 +19,17 @@ const EditProfileModal = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log("Updated Profile Data:", formData);
-
     onClose();
   };
 
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-100">
-      <div className="bg-white w-5xl max-h-[85vh] overflow-y-auto">
+      <div className="bg-white w-5xl max-h-[85vh] overflow-y-auto ">
         <button
           onClick={onClose}
-          className="bg-red-400 p-2 px-5 rounded-3xl text-white m-4"
-        >
+          className="bg-red-400 p-2 px-5 rounded-3xl text-white m-4 ml-240"
+           >
           X
         </button>
 
