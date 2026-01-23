@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
+import api from "../../../config/Api"
 
 const EditProfileModal = ({ onClose }) => {
   const { user } = useAuth();
 
   const [formData, setFormData] = useState({
-    fullName: user?.fullName || "",
-    mobileNumber: user?.mobileNumber || "",
+    fullName: user.fullName || "",
+    mobileNumber: user.mobileNumber || "",    
   });
 
   const handleChange = (e) => {
@@ -17,10 +18,16 @@ const EditProfileModal = ({ onClose }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Updated Profile Data:", formData);
     onClose();
+
+    try {
+      const res = await api.put("/user/Update")
+    } catch (error) {
+      
+    }
   };
 
   return (
@@ -73,7 +80,7 @@ const EditProfileModal = ({ onClose }) => {
                     onClick={() =>
                       setFormData({
                         fullName: user?.fullName || "",
-                        mobileNumber: user?.mobileNumber || "",
+                        mobileNumber: user.mobileNumber || "",
                       })
                     }
                     className="flex-1 bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-lg hover:bg-gray-400 transition"
