@@ -33,7 +33,7 @@ const EditProfileModal = ({ onClose }) => {
       <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-100">
         <div className="bg-white w-5xl max-h-[85vh] overflow-y-auto">
           <div className="flex justify-between px-5 py-3 border-b border-gray-300 items-center">
-            <div>EditProfileModal</div>
+            <div>Edit Profile</div>
             <button
               onClick={() => onClose()}
               className="text-red-600 hover:text-red-900 text-2xl"
@@ -69,7 +69,7 @@ const EditProfileModal = ({ onClose }) => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 cursor-not-allowed "
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 cursor-not-allowed bg-gray-400 opacity-50"
                     disabled
                   />
                 </div>
