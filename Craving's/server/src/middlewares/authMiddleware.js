@@ -22,7 +22,6 @@ export const Protect = async (req, res, next) => {
     }
 
     req.user = verifiedUser;
-    
 
     next();
   } catch (error) {
