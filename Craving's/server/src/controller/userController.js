@@ -1,26 +1,45 @@
+import User from "../models/userModel.js";
+
 export const UserUpdate = async (req, res, next) => {
   try {
+    //logic here
+
     const { fullName, email, mobileNumber } = req.body;
     const currentUser = req.user;
 
     if (!fullName || !email || !mobileNumber) {
-      const error = new Error("All fields required");
+      const error = new Error("All Feilds Required");
       error.statusCode = 400;
       return next(error);
     }
 
-    console.log(currentUser); //old user data in jason formate
-    currentUser.fullName = fullName;
-    currentUser.email = email;
-    currentUser.mobileNumber = mobileNumber;
-    await currentUser.save();
+    console.log("OldData: ", currentUser); //old user data in JSON format
+    //first Way
+    // currentUser.fullName = fullName;
+    // currentUser.email = email;
+    // currentUser.mobileNumber = mobileNumber;
+    // await currentUser.save();
 
-    console.log("New Data:",currentUser);
-    res.status(200).json({message})
-    
+    // console.log("NewData:", currentUser);
 
-    console.log("updating the user");
-    
+    //Second Way
+
+    const updatedUser = await User.findByIdAndUpdate(
+      { _id: currentUser._id },
+      {
+        fullName,
+        email,
+        mobileNumber,
+      },
+      { new: true },
+    );
+
+    console.log("Updated User: ", updatedUser);
+    res
+      .status(200)
+      .json({ message: "User Updated Sucessfully", data: updatedUser });
+
+    console.log("Updating the user");
   } catch (error) {
     next(error);
   }
