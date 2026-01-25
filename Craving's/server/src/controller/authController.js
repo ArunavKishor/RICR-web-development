@@ -34,6 +34,7 @@ export const UserRegister = async (req, res, next) => {
       email,
       mobileNumber,
       password: hashedpassword,
+      role,
     });
     //send response to frontend
     console.log(newUser);

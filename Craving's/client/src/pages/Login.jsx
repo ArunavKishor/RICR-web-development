@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const { setUser, setIsLogin } = useAuth();
+  const { setUser, setIsLogin, setRole } = useAuth();
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -13,7 +14,6 @@ const Login = () => {
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [validationError, setValidationError] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,46 +23,47 @@ const Login = () => {
   const handleClearForm = () => {
     setFormData({
       email: "",
-
       password: "",
     });
-  };
-
-  const validate = () => {
-    let Error = {};
-
-    if (
-      !/^[\w\.]+@(gmail|outlook|ricr|yahoo)\.(com|in|co.in)$/.test(
-        formData.email,
-      )
-    ) {
-      Error.email = "Use Proper Email Format";
-    }
-
-    setValidationError(Error);
-
-    return Object.keys(Error).length > 0 ? false : true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    if (!validate()) {
-      setIsLoading(false);
-      toast.error("Fill the Form Correctly");
-      return;
-    }
     console.log(formData);
-
     try {
-      const res = await api.post("/auth/login", formData); //data reach be
-      toast.success(res.data.message); //response be
-      setUser(res.data.data); //conectivity
+      const res = await api.post("/auth/login", formData);
+      toast.success(res.data.message);
+      setUser(res.data.data);
       setIsLogin(true);
-      sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data)); //backup
+      sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));
       handleClearForm();
-      navigate("/user-dashboard"); //data to user dashbord
+      switch (res.data.data.role) {
+        case "manager": {
+          setRole("manager");
+          navigate("/resturant-dashboard");
+          break;
+        }
+        case "partner": {
+          setRole("partner");
+          navigate("/rider-dashboard");
+          break;
+        }
+        case "customer": {
+          setRole("customer");
+          navigate("/user-dashboard");
+          break;
+        }
+        case "admin": {
+          setRole("admin");
+          navigate("/admin-dashboard");
+          break;
+        }
+
+        default:
+          break;
+      }
     } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.message || "Unknown Error");
@@ -77,8 +78,12 @@ const Login = () => {
         <div className="max-w-xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Login</h1>
-            <p className="text-lg text-gray-600 italic">Welcome Back!</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              Welcome Back
+            </h1>
+            {/* <p className="text-lg text-gray-600">
+              You are 1 step away to stop your Cavings
+            </p> */}
           </div>
 
           {/* Form Container */}
@@ -106,7 +111,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     value={formData.password}
-                    placeholder="Enter Password"
+                    placeholder="Create Password"
                     onChange={handleChange}
                     required
                     disabled={isLoading}
@@ -129,7 +134,7 @@ const Login = () => {
                   disabled={isLoading}
                   className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700 hover:to-indigo-800 transition duration-300 transform hover:scale-105 shadow-lg disabled:scale-100 disabled:bg-gray-300  disabled:cursor-not-allowed"
                 >
-                  {isLoading ? "Submitting" : "Submit"}
+                  {isLoading ? "loading.." : "Login"}
                 </button>
               </div>
             </form>
