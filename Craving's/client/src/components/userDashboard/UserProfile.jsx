@@ -1,10 +1,26 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import EditProfileModal from "./modals/EditProfileModal";
+import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
+  const { user, role, isLogin } = useAuth();
+  const navigate = useNavigate();
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
-  const { user } = useAuth();
+
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/login");
+    }
+  });
+
+  if (role !== "customer") {
+    return (
+      <>
+        <div >You are not Loggedin as Customer. Please login again</div>
+      </>
+    );
+  }
 
   return (
     <>
