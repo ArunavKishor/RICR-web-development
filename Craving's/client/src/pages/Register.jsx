@@ -15,8 +15,8 @@ const Register = () => {
   const [validationError, setValidationError] = useState({});
 
   const handleChange = (e) => {
-    const { name, value, type } = e.target;
-
+    const { name, value } = e.target;
+   
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -53,8 +53,9 @@ const Register = () => {
     if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) {
       Error.mobileNumber = "Only Indian Mobile Number allowed";
     }
-    if (!role) {
-      Error.role = "Please chose any one";
+
+    if (!formData.role) {
+      Error.role = "Please choose any one";
     }
 
     setValidationError(Error);
@@ -71,8 +72,8 @@ const Register = () => {
       toast.error("Fill the Form Correctly");
       return;
     }
-    console.log(formData);
 
+    console.log(formData);
     try {
       const res = await api.post("/auth/register", formData);
       toast.success(res.data.message);
@@ -94,8 +95,8 @@ const Register = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Registration
             </h1>
-            <p className="text-lg text-gray-600 italic">
-              Just one step away from your cravings!
+            <p className="text-lg text-gray-600">
+              You are 1 step away to stop your Cavings
             </p>
           </div>
 
@@ -109,9 +110,9 @@ const Register = () => {
               {/* Personal Information */}
               <div className="mb-10">
                 <div className="space-y-4">
-                  <div className="flex gap-3 ">
-                    <label htmlFor="">I Am</label>
-                    <div className="flex items-center justify-around gap-3">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <label>I am </label>
                       <div className="flex items-center gap-2">
                         <input
                           type="radio"
@@ -146,8 +147,12 @@ const Register = () => {
                         <label htmlFor="customer">Customer</label>
                       </div>
                     </div>
+                     {validationError.role && (
+                      <span className="text-xs text-red-500">
+                        {validationError.role}
+                      </span>
+                    )}
                   </div>
-
                   <div>
                     <input
                       type="text"

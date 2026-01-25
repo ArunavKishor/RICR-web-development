@@ -1,29 +1,35 @@
 import React from "react";
 import Header from "./components/Header";
-import About from "./pages/About";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import { Toaster } from "react-hot-toast";
-import UserDashboard from "./pages/dashbords/UserDashBoard";
+import UserDashboard from "./pages/dashbords/UserDashboard";
+import RiderDashboard from "./pages/dashbords/RiderDashbord";
+import ResturantDashboard from "./pages/dashbords/RestaurentDashbord";
+import AdminDashboard from "./pages/dashbords/AdminDashbord";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-      <Toaster/>
+        <Toaster />
         <Header />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/user-dashboard" element={<UserDashboard/>}/>
+          <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route path="/rider-dashboard" element={<RiderDashboard />} />
+          <Route path="/resturant-dashboard" element={<ResturantDashboard />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
-        <h1></h1>
       </BrowserRouter>
     </>
   );
