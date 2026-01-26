@@ -1,5 +1,5 @@
 import express from "express";
-import { UserUpdate, UserChangePhoto } from "../controllers/userController.js";
+import { UserUpdate, UserChangePhoto } from "../controller/userController.js";
 import { Protect } from "../middlewares/authMiddleware.js";
 import multer from "multer";
 

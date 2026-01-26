@@ -47,7 +47,7 @@ const UserSideBar = ({ active, setActive, isCollapsed, setIsCollapsed }) => {
               onClick={() => setIsCollapsed(!isCollapsed)}
             >
               <GiHamburgerMenu />
-            </button>{" "}
+            </button>{""}
             {!isCollapsed && (
               <span className="overflow-hidden text-nowrap">
                 User Dashboard
@@ -62,7 +62,7 @@ const UserSideBar = ({ active, setActive, isCollapsed, setIsCollapsed }) => {
                 className={`flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300
                 ${
                   active === item.key
-                    ? "bg-(--color-secondary) text-white"
+                    ? "bg-(--secondary) text-white"
                     : "hover:bg-gray-100/70 "
                 } 
               `}

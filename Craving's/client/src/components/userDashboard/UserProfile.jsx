@@ -40,7 +40,7 @@ const UserProfile = () => {
 
   return (
     <>
-      <div className="bg-(--color-primary)/10 rounded-lg shadow-md p-6 md:p-8 h-full">
+      <div className="bg-(--primary)/10 rounded-lg shadow-md p-6 md:p-8 h-full">
         <div className="flex justify-between border p-3 rounded-3xl items-center border-gray-300 bg-white">
           <div className="flex gap-5 items-center">
             <div className="relative">
@@ -54,7 +54,7 @@ const UserProfile = () => {
               <div className="absolute bottom-2 left-[75%] border bg-white p-2 rounded-full group flex gap-3">
                 <label
                   htmlFor="imageUpload"
-                  className="text-(--color-primary) group-hover:text-(--color-secondary)"
+                  className="text-(--primary) group-hover:text-(--secondary)"
                 >
                   <FaCamera />
                 </label>
@@ -68,7 +68,7 @@ const UserProfile = () => {
               </div>
             </div>
             <div>
-              <div className="text-3xl text-(--color-primary) font-bold">
+              <div className="text-3xl text-(--primary) font-bold">
                 {user.fullName}
               </div>
               <div className="text-gray-600 text-lg font-semibold">
@@ -80,10 +80,10 @@ const UserProfile = () => {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <button className="px-4 py-2 rounded bg-(--color-secondary) text-white">
+            <button className="px-4 py-2 rounded bg-(--secondary) text-white">
               Edit
             </button>
-            <button className="px-4 py-2 rounded bg-(--color-secondary) text-white">
+            <button className="px-4 py-2 rounded bg-(--secondary) text-white">
               Reset
             </button>
           </div>

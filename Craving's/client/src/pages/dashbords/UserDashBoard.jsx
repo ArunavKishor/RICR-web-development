@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import UserSideBar from "../../components/userDashboard/UserSideBar";
+import UserSideBar from "../../components/userDashboard/UserSidebar";
 import UserOverview from "../../components/userDashboard/userOverview";
 import UserProfile from "../../components/userDashboard/UserProfile";
-import UserOrders from "../../components/userDashboard/UserOrders";
-import UserTransactions from "../../components/userDashboard/userTransactions";
+import UserOrders from "../../components/userDashboard/UserOrder";
+import UserTransactions from "../../components/userDashboard/UserTransaction";
 import UserHelpDesk from "../../components/userDashboard/UserHelpDesk";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,7 @@ const UserDashboard = () => {
     <>
       <div className="w-full h-[90vh] flex">
         <div
-          className={`bg-(--color-background) duration-300 ${isCollapsed ? "w-2/60" : "w-12/60"}`}
+          className={`bg-(--background) duration-300 ${isCollapsed ? "w-2/60" : "w-12/60"}`}
         >
           <UserSideBar
             active={active}
