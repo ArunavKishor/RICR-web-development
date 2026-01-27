@@ -69,13 +69,13 @@ const UserProfile = () => {
             </div>
             <div>
               <div className="text-3xl text-(--primary) font-bold">
-                {user.fullName}
+                {user.fullName || "User Name"}
               </div>
               <div className="text-gray-600 text-lg font-semibold">
-                {user.email}
+                {user.email || "user@example.com"}
               </div>
               <div className="text-gray-600 text-lg font-semibold">
-                {user.mobileNumber}
+                {user.mobileNumber || "xxxxxxxxxx"}
               </div>
             </div>
           </div>
