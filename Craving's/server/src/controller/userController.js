@@ -1,91 +1,108 @@
-import cloudinary from "../config/cloudinary.js";
-import User from "../models/userModel.js";
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../../context/AuthContext";
+import EditProfileModal from "./modals/EditProfileModal";
+import UserImage from "../../assets/userImage.jpg";
+import { FaCamera } from "react-icons/fa";
+import api from "../../config/Api";
+import toast from "react-hot-toast";
 
-export const UserUpdate = async (req, res, next) => {
-  try {
-    //logic here
+const UserProfile = () => {
+  const { user, setUser } = useAuth();
+  console.log(user);
 
-    const { fullName, email, mobileNumber } = req.body;
-    const currentUser = req.user;
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
+  const [preview, setPreview] = useState("");
 
-    if (!fullName || !email || !mobileNumber) {
-      const error = new Error("All Feilds Required");
-      error.statusCode = 400;
-      return next(error);
+  const changePhoto = async (photo) => {
+    const form_Data = new FormData();
+
+    // console.log("Printing photo", photo);
+
+    form_Data.append("image", photo);
+    // form_Data.append("imageURL", preview);
+
+    try {
+      const res = await api.patch("/user/changePhoto", form_Data);
+
+      toast.success(res.data.message);
+
+      setUser(res.data.data);
+      sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Unknown Error");
     }
+  };
 
-    console.log("OldData: ", currentUser); //old user data in JSON format
-    //first Way
-    // currentUser.fullName = fullName;
-    // currentUser.email = email;
-    // currentUser.mobileNumber = mobileNumber;
-    // await currentUser.save();
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    const newPhotoURL = URL.createObjectURL(file);
+    console.log(newPhotoURL);
+    setPreview(newPhotoURL);
+    setTimeout(() => {
+      changePhoto(file);
+    }, 5000);
+  };
 
-    // console.log("NewData:", currentUser);
+  return (
+    <>
+      <div className="bg-(--color-primary)/10 rounded-lg shadow-md p-6 md:p-8 h-full">
+        <div className="flex justify-between border p-3 rounded-3xl items-center border-gray-300 bg-white">
+          <div className="flex gap-5 items-center">
+            <div className="relative">
+              <div className=" border rounded-full w-36 h-36 overflow-hidden">
+                <img
+                  src={preview || user.photo.url || UserImage}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute bottom-2 left-[75%] border bg-white p-2 rounded-full group flex gap-3">
+                <label
+                  htmlFor="imageUpload"
+                  className="text-(--color-primary) group-hover:text-(--color-secondary)"
+                >
+                  <FaCamera />
+                </label>
+                <input
+                  type="file"
+                  id="imageUpload"
+                  className="hidden"
+                  accept="image/*"
+                  onChange={handlePhotoChange}
+                />
+              </div>
+            </div>
+            <div>
+              <div className="text-3xl text-(--color-primary) font-bold">
+                {user.fullName || "User Name"}
+              </div>
+              <div className="text-gray-600 text-lg font-semibold">
+                {user.email || "user@example.com"}
+              </div>
+              <div className="text-gray-600 text-lg font-semibold">
+                {user.mobileNumber || "XXXXXXXXXX"}
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <button
+              className="px-4 py-2 rounded bg-(--color-secondary) text-white"
+              onClick={() => setIsEditProfileModalOpen(true)}
+            >
+              Edit
+            </button>
+            <button className="px-4 py-2 rounded bg-(--color-secondary) text-white">
+              Reset password
+            </button>
+          </div>
+        </div>
+      </div>
 
-    //Second Way
-
-    const updatedUser = await User.findByIdAndUpdate(
-      { _id: currentUser._id },
-      {
-        fullName,
-        email,
-        mobileNumber,
-      },
-      { new: true },
-    );
-
-    console.log("Updated User: ", updatedUser);
-    res
-      .status(200)
-      .json({ message: "User Updated Sucessfully", data: updatedUser });
-
-    console.log("Updating the user");
-  } catch (error) {
-    next(error);
-  }
+      {isEditProfileModalOpen && (
+        <EditProfileModal onClose={() => setIsEditProfileModalOpen(false)} />
+      )}
+    </>
+  );
 };
 
-export const UserChangePhoto = async (req, res, next) => {
-  try {
-    // console.log("body: ", req.body);
-    const currentUser = req.user;
-    const dp = req.file;
-
-    console.log("request file: ", req.file);
-
-    if (!dp) {
-      const error = new Error("Profile Picture required");
-      error.statusCode = 400;
-      return next(error);
-    }
-
-    console.log("DP:", dp);
-
-    if (currentUser.photo.publicID) {
-      await cloudinary.uploader.destroy(currentUser.photo.publicID);
-    }
-
-    const b64 = Buffer.from(dp.buffer).toString("base64");
-    // console.log(b64.slice(0,100));
-    const dataURI = `data:${dp.mimetype};base64,${b64}`;
-    console.log("DataURI", dataURI.slice(0, 100));
-
-    const result = await cloudinary.uploader.upload(dataURI, {
-      folder: "Cravings/User",
-      width: 500,
-      height: 500,
-      crop: "fill",
-    });
-
-    console.log("Image Uplaoded successfully: ", result);
-    currentUser.photo.url = result.secure_url;
-    currentUser.photo.publicID = result.public_id;
-
-    await currentUser.save();
-
-    res.status(200).json({ message: "Photo Updated", data: currentUser });
-  } catch (error) {
-    next(error);
-  }
-};
+export default UserProfile;
