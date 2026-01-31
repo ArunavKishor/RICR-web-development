@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
 const sendEmail = async (to, subject, message) => {
   try {
@@ -29,8 +29,10 @@ const sendEmail = async (to, subject, message) => {
   }
 };
 
-sendEmail(
-  "arunavkishor@gmail.com",
-  "testemail",
-  "<p style='color:red'>Test message</p>",
-);
+export default sendEmail;
+
+// sendEmail(
+//   "arunavkishor@gmail.com",
+//   "testemail",
+//   "<p style='color:red'>Test message</p>",
+// );

@@ -9,6 +9,9 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const [isForgetPasswordModealOpen, isForgetPasswordModealClose] =
+    useState(false);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -94,7 +97,7 @@ const Login = () => {
               className="p-8"
             >
               {/* Personal Information */}
-              <div className="mb-10">
+              <div className="mb-5">
                 <div className="space-y-4">
                   <input
                     type="email"
@@ -118,6 +121,7 @@ const Login = () => {
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
                 </div>
+                <div className="w-full flex justify-end">Forget Password ?</div>
               </div>
 
               {/* Submit Button */}
@@ -146,6 +150,10 @@ const Login = () => {
           </p>
         </div>
       </div>
+      {
+        isForgetPasswordModealOpen &&
+        onClose
+      }
     </>
   );
 };
