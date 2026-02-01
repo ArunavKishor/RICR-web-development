@@ -150,10 +150,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-      {
-        isForgetPasswordModealOpen &&
-        onClose
-      }
+      {isForgetPasswordModealOpen && onClose}
     </>
   );
 };
