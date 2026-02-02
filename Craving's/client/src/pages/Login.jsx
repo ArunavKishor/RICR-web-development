@@ -3,13 +3,14 @@ import toast from "react-hot-toast";
 import api from "../config/Api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import ForgetPasswordModal from "../components/publicModals/ForgetPasswordModal";
 
 const Login = () => {
   const { setUser, setIsLogin, setRole } = useAuth();
 
   const navigate = useNavigate();
 
-  const [isForgetPasswordModealOpen, isForgetPasswordModealClose] =
+  const [isForgetPasswordModelOpen, setIsForgetPasswordModelOpen] =
     useState(false);
 
   const [formData, setFormData] = useState({
@@ -121,7 +122,17 @@ const Login = () => {
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
                 </div>
-                <div className="w-full flex justify-end">Forget Password ?</div>
+                <div className="w-full flex justify-end">
+                  <button
+                    className="text-(--color-primary) hover:text-(--color-secondary) cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsForgetPasswordModelOpen(true);
+                    }}
+                  >
+                    Forget Password?
+                  </button>
+                </div>
               </div>
 
               {/* Submit Button */}
@@ -150,7 +161,12 @@ const Login = () => {
           </p>
         </div>
       </div>
-      {isForgetPasswordModealOpen && onClose}
+
+      {isForgetPasswordModelOpen && (
+        <ForgetPasswordModal
+          onClose={() => setIsForgetPasswordModelOpen(false)}
+        />
+      )}
     </>
   );
 };
