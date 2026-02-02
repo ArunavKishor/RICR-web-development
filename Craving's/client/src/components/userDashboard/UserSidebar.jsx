@@ -65,7 +65,7 @@ const UserSideBar = ({ active, setActive, isCollapsed, setIsCollapsed }) => {
                 className={`flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300
                 ${
                   active === item.key
-                    ? "bg-(--secondary) text-white"
+                    ? "bg-(--color-secondary) text-white"
                     : "hover:bg-gray-100/70 "
                 } 
               `}
