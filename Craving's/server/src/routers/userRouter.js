@@ -3,7 +3,7 @@ import {
   UserUpdate,
   UserChangePhoto,
   UserResetPassword,
-} from "../controller/userController.js";
+} from "../controllers/userController.js";
 import { Protect } from "../middlewares/authMiddleware.js";
 import multer from "multer";
 
