@@ -1,4 +1,4 @@
-import Contact from "../models/publicModel.js";
+import Contact from "../models/contactModel.js";
 export const NewContact = async (req, res, next) => {
   try {
     const { fullName, email, mobileNumber, message } = req.body;
