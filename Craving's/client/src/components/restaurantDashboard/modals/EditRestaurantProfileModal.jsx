@@ -34,6 +34,7 @@ const EditRestaurantProfileModal = ({ onClose }) => {
     },
   });
 
+  
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
