@@ -34,7 +34,6 @@ const EditRestaurantProfileModal = ({ onClose }) => {
     },
   });
 
-  
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
@@ -140,7 +139,7 @@ const EditRestaurantProfileModal = ({ onClose }) => {
     setMessage({ type: "", text: "" });
 
     try {
-      const res = await api.put("/user/update", formData);
+      const res = await api.put("/restaurant/update", formData);
       if (res.data?.data) {
         sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));
         setUser(res.data.data);
@@ -263,9 +262,9 @@ const EditRestaurantProfileModal = ({ onClose }) => {
                     className="w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">Select Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
 
@@ -300,9 +299,7 @@ const EditRestaurantProfileModal = ({ onClose }) => {
                     value={formData.restaurantName}
                     onChange={handleInputChange}
                     className={`w-full border rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                      errors.restaurantName
-                        ? "border-red-500"
-                        : "border-gray-300"
+                      errors.restaurantName ? "border-red-500" : "border-gray-300"
                     }`}
                     placeholder="Enter restaurant name"
                   />
