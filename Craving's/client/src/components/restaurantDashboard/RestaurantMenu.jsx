@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
 
   useEffect(() => {
     if (!isAddItemModalOpen && !isEditItemModalOpen) fetchMenuItem();
-  }, [isAddItemModalOpen,isEditItemModalOpen]);
+  }, [isAddItemModalOpen, isEditItemModalOpen]);
   return (
     <>
       <div className="bg-gray-50 rounded-lg p-6 h-full overflow-y-auto">
@@ -38,7 +38,7 @@ const RestaurantMenu = () => {
               Menu Management
             </h2>
             <button
-              className="px-4 py-2 bg-(--color-secondary) text-white rounded-lg hover:bg-(--color-secondary-hover) transition font-semibold"
+              className="px-4 py-2 bg-(--secondary) text-white rounded-lg hover:bg-(--secondary-hover) transition font-semibold"
               onClick={() => setIsAddItemModalOpen(true)}
             >
               Add Item
@@ -49,7 +49,7 @@ const RestaurantMenu = () => {
           <div>
             <table className="w-full mt-3">
               <thead>
-                <tr className="grid grid-cols-8 text-lg bg-(--color-secondary) text-white">
+                <tr className="grid grid-cols-8 text-lg bg-(--secondary) text-white">
                   <th className="font-semibold">S.no</th>
                   <th className="font-semibold col-span-2">Item Name</th>
                   <th className="font-semibold">Price</th>

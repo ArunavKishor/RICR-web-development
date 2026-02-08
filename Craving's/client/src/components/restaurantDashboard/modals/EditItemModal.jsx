@@ -51,7 +51,7 @@ const EditItemModal = ({ onClose, selectedItem }) => {
 
     try {
       const form_data = new FormData();
-    //   form_data.append("itemID", selectedItem._id);
+      //   form_data.append("itemID", selectedItem._id);
       form_data.append("itemName", formData.itemName);
       form_data.append("description", formData.description);
       form_data.append("price", formData.price);
@@ -128,7 +128,7 @@ const EditItemModal = ({ onClose, selectedItem }) => {
               <div className="flex items-end gap-4">
                 <label
                   htmlFor="image"
-                  className="px-6 py-2 w-fit bg-(--color-secondary) text-white rounded-md hover:bg-(--color-secondary-hover) cursor-pointer transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="px-6 py-2 w-fit bg-(--secondary) text-white rounded-md hover:bg-(--secondary-hover) cursor-pointer transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                   Add Image
                 </label>

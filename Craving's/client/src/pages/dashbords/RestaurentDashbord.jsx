@@ -40,7 +40,7 @@ const RestaurantDashboard = () => {
     <>
       <div className="w-full h-[90vh] flex">
         <div
-          className={`bg-(--color-background) duration-300 ${
+          className={`bg-(--background) duration-300 ${
             isCollapsed ? "w-2/60" : "w-12/60"
           }`}
         >

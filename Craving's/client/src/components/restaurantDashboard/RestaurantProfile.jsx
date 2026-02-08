@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import EditRestaurantProfileModal from "./modals/EditRestaurantProfileModal";
 import UserImage from "../../assets/userImage.jpg";
-import {
-  FaCamera,
-  FaMapLocationDot,
-  FaWallet,
-} from "react-icons/fa6";
+import { FaCamera, FaMapLocationDot, FaWallet } from "react-icons/fa6";
 import { FaFileAlt } from "react-icons/fa";
 import { BiSolidBank } from "react-icons/bi";
 import api from "../../config/Api";
@@ -77,7 +73,7 @@ const RestaurantProfile = () => {
                 </div>
                 <label
                   htmlFor="imageUpload"
-                  className="absolute bottom-2 right-2 bg-(--color-secondary) text-white p-3 rounded-full hover:bg-(--color-secondary-hover) cursor-pointer transition transform hover:scale-110"
+                  className="absolute bottom-2 right-2 bg-(--secondary) text-white p-3 rounded-full hover:bg-(--secondary-hover) cursor-pointer transition transform hover:scale-110"
                 >
                   <FaCamera size={18} />
                 </label>
@@ -98,11 +94,11 @@ const RestaurantProfile = () => {
             <div className="flex justify-between w-full">
               <div>
                 <div className="mb-6">
-                  <h1 className="text-4xl font-bold text-(--color-primary) mb-2">
+                  <h1 className="text-4xl font-bold text-(--primary) mb-2">
                     {user?.fullName || "Manager Name"}
                   </h1>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-(--color-secondary) text-white px-3 py-1 rounded-full text-sm font-semibold capitalize">
+                    <span className="bg-(--secondary) text-white px-3 py-1 rounded-full text-sm font-semibold capitalize">
                       {user?.role || "manager"}
                     </span>
                     <span
@@ -137,7 +133,7 @@ const RestaurantProfile = () => {
                 <div className="flex gap-3">
                   <button
                     onClick={() => setIsEditProfileModalOpen(true)}
-                    className="px-6 py-2 bg-(--color-secondary) text-white rounded-lg hover:bg-(--color-secondary-hover) transition font-semibold"
+                    className="px-6 py-2 bg-(--secondary) text-white rounded-lg hover:bg-(--secondary-hover) transition font-semibold"
                   >
                     Edit Profile
                   </button>
@@ -156,7 +152,7 @@ const RestaurantProfile = () => {
         {/* Personal Information Section */}
         <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
           <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <span className="w-1 h-6 bg-(--color-secondary) rounded"></span>
+            <span className="w-1 h-6 bg-(--secondary) rounded"></span>
             Personal Information
           </h2>
           <div className="space-y-1">
@@ -173,7 +169,7 @@ const RestaurantProfile = () => {
           user?.geoLocation?.lon !== "N/A") && (
           <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
             <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-              <FaMapLocationDot className="text-(--color-secondary)" />
+              <FaMapLocationDot className="text-(--secondary)" />
               Geo Location
             </h2>
             <div className="space-y-1">
@@ -187,7 +183,7 @@ const RestaurantProfile = () => {
         {user?.paymentDetails?.upi !== "N/A" && (
           <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
             <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-              <FaWallet className="text-(--color-secondary)" />
+              <FaWallet className="text-(--secondary)" />
               Payment Details
             </h2>
             <div className="space-y-1">
@@ -201,7 +197,7 @@ const RestaurantProfile = () => {
           user?.paymentDetails?.ifs_Code !== "N/A") && (
           <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
             <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-              <BiSolidBank className="text-(--color-secondary)" />
+              <BiSolidBank className="text-(--secondary)" />
               Bank Account Details
             </h2>
             <div className="space-y-1">
@@ -231,7 +227,7 @@ const RestaurantProfile = () => {
         {Object.values(user?.documents || {}).some((doc) => doc !== "N/A") && (
           <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
             <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-              <FaFileAlt className="text-(--color-secondary)" />
+              <FaFileAlt className="text-(--secondary)" />
               Business Documents
             </h2>
             <div className="space-y-1">

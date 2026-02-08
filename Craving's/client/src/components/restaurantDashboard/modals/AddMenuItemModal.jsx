@@ -126,7 +126,7 @@ const AddMenuItemModal = ({ onClose }) => {
               <div className="flex items-end gap-4">
                 <label
                   htmlFor="image"
-                  className="px-6 py-2 w-fit bg-(--color-secondary) text-white rounded-md hover:bg-(--color-secondary-hover) cursor-pointer transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="px-6 py-2 w-fit bg-(--secondary) text-white rounded-md hover:bg-(--secondary-hover) cursor-pointer transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                   Add Image
                 </label>
