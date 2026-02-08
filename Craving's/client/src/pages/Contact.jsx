@@ -30,7 +30,6 @@ const Contact = () => {
     setIsLoading(true);
 
     console.log(formData);
-
     try {
       const res = await api.post("/public/new-contact", formData);
       toast.success(res.data.message);
@@ -50,11 +49,9 @@ const Contact = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Post your query here
+              Post your Query
             </h1>
-            <p className="text-lg text-gray-600 italic">
-              We are here to help you...
-            </p>
+          
           </div>
 
           {/* Form Container */}
@@ -67,18 +64,17 @@ const Contact = () => {
               {/* Personal Information */}
               <div className="mb-10">
                 <div className="space-y-4">
-                  <div>
-                    <input
-                      type="text"
-                      name="fullName"
-                      placeholder="Full Name"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required
-                      disabled={isLoading}
-                      className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Full Name"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
+                    className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
+                  />
+
                   <input
                     type="email"
                     name="email"
@@ -100,12 +96,10 @@ const Contact = () => {
                     disabled={isLoading}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
-
                   <textarea
-                    type="text"
                     name="message"
-                    placeholder="Type your Query"
                     value={formData.message}
+                    placeholder="Write your Message"
                     onChange={handleChange}
                     required
                     disabled={isLoading}

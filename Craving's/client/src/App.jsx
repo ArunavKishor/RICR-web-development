@@ -7,10 +7,11 @@ import Contact from "./pages/Contact";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import { Toaster } from "react-hot-toast";
-import UserDashboard from "./pages/dashbords/UserDashboard";
-import RiderDashboard from "./pages/dashbords/RiderDashbord";
-import ResturantDashboard from "./pages/dashbords/RestaurentDashbord";
-import AdminDashboard from "./pages/dashbords/AdminDashbord";
+import UserDashboard from "./pages/dashboards/UserDashboard";
+import RiderDashboard from "./pages/dashboards/RiderDashboard";
+import ResturantDashboard from "./pages/dashboards/ResturantDashboard";
+import AdminDashboard from "./pages/dashboards/AdminDashboard";
+import OrderNow from "./pages/OrderNow";
 
 const App = () => {
   return (
@@ -29,6 +30,8 @@ const App = () => {
           <Route path="/rider-dashboard" element={<RiderDashboard />} />
           <Route path="/resturant-dashboard" element={<ResturantDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/order-now" element={<OrderNow />} />
+
         </Routes>
       </BrowserRouter>
     </>

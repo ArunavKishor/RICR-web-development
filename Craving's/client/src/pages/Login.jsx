@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import api from "../config/Api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import ForgetPasswordModal from "../components/publicModals/ForgetPasswoardModal";
+import ForgetPasswordModal from "../components/publicModals/ForgetPasswordModal";
 
 const Login = () => {
   const { setUser, setIsLogin, setRole } = useAuth();
@@ -124,7 +124,7 @@ const Login = () => {
                 </div>
                 <div className="w-full flex justify-end">
                   <button
-                    className="text-(--primary) hover:text-(--secondary) cursor-pointer"
+                    className="text-(--color-primary) hover:text-(--color-secondary) cursor-pointer"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsForgetPasswordModelOpen(true);

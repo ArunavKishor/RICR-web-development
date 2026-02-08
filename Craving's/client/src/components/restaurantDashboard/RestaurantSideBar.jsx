@@ -1,67 +1,99 @@
-import React, { useState, useEffect } from "react";
-import RestaurantSideBar from "../../components/restaurantDashboard/RestaurantSideBar";
-import RestaurantOverview from "../../components/restaurantDashboard/RestaurantOverview";
-import RestaurantProfile from "../../components/restaurantDashboard/RestaurantProfile";
-import RestaurantMenu from "../../components/restaurantDashboard/RestaurantMenu";
-import RestaurantOrders from "../../components/restaurantDashboard/RestaurantOrders";
-import RestaurantEarnings from "../../components/restaurantDashboard/RestaurantEarnings";
-import RestaurantHelpDesk from "../../components/restaurantDashboard/RestaurantHelpDesk";
+import React from "react";
+import { TbChartTreemap } from "react-icons/tb";
+import { ImProfile } from "react-icons/im";
+import { BiSolidFoodMenu } from "react-icons/bi";
+import { TiShoppingCart } from "react-icons/ti";
+import { FaMoneyBillWave } from "react-icons/fa";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdLogout } from "react-icons/md";
+import api from "../../config/Api";
+import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const RestaurantDashboard = () => {
-  const { role, isLogin } = useAuth();
+const RestaurantSideBar = ({
+  active,
+  setActive,
+  isCollapsed,
+  setIsCollapsed,
+}) => {
+  const { setUser, setIsLogin } = useAuth();
   const navigate = useNavigate();
-  const [active, setActive] = useState("overview");
-  const [isCollapsed, setIsCollapsed] = useState(false);
 
-  useEffect(() => {
-    if (!isLogin) {
-      navigate("/login");
+  const menuItems = [
+    { key: "overview", title: "Overview", icon: <TbChartTreemap /> },
+    { key: "profile", title: "Profile", icon: <ImProfile /> },
+    { key: "menu", title: "Menu", icon: <BiSolidFoodMenu /> },
+    { key: "orders", title: "Orders", icon: <TiShoppingCart /> },
+    { key: "earnings", title: "Earnings", icon: <FaMoneyBillWave /> },
+    { key: "helpdesk", title: "Help Desk", icon: <RiCustomerService2Fill /> },
+  ];
+
+  const handleLogout = async () => {
+    try {
+      const res = await api.get("/auth/logout");
+      toast.success(res.data.message);
+      setUser("");
+      setIsLogin(false);
+      navigate("/");
+      sessionStorage.removeItem("CravingUser");
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Unknown Error");
     }
-  });
-
-  if (role !== "manager") {
-    return (
-      <>
-        <div className="p-3">
-          <div className="border rounded shadow p-5 w-4xl mx-auto text-center bg-gray-100">
-            <div className="text-5xl text-red-600">⊗</div>
-            <div className="text-xl">
-              You are not logged in as Restaurant Manager. Please login again.
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
+  };
 
   return (
     <>
-      <div className="w-full h-[90vh] flex">
-        <div
-          className={`bg-(--color-background) duration-300 ${
-            isCollapsed ? "w-2/60" : "w-12/60"
-          }`}
-        >
-          <RestaurantSideBar
-            active={active}
-            setActive={setActive}
-            isCollapsed={isCollapsed}
-            setIsCollapsed={setIsCollapsed}
-          />
+      <div className="p-2 flex flex-col justify-between h-full">
+        <div>
+          <div className="h-10 text-xl font-bold flex gap-5 items-center mb-3">
+            <button
+              className="ms-2 hover:scale-105"
+              onClick={() => setIsCollapsed(!isCollapsed)}
+            >
+              <GiHamburgerMenu />
+            </button>
+            {!isCollapsed && (
+              <span className="overflow-hidden text-nowrap">
+                Restaurant Dashboard
+              </span>
+            )}
+          </div>
+          <hr />
+
+          <div className="py-6 space-y-5 w-full">
+            {menuItems.map((item, idx) => (
+              <button
+                className={`flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300
+                ${
+                  active === item.key
+                    ? "bg-(--color-secondary) text-white"
+                    : "hover:bg-gray-100/70"
+                } 
+              `}
+                onClick={() => setActive(item.key)}
+                key={idx}
+              >
+                {item.icon}
+                {!isCollapsed && item.title}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className={`${isCollapsed ? "w-58/60" : "w-48/60"} duration-300`}>
-          {active === "overview" && <RestaurantOverview />}
-          {active === "profile" && <RestaurantProfile />}
-          {active === "menu" && <RestaurantMenu />}
-          {active === "orders" && <RestaurantOrders />}
-          {active === "earnings" && <RestaurantEarnings />}
-          {active === "helpdesk" && <RestaurantHelpDesk />}
+
+        <div>
+          <button
+            className="flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300 hover:bg-red-500 hover:text-white text-red-600"
+            onClick={handleLogout}
+          >
+            <MdLogout />
+            {!isCollapsed && "Logout"}
+          </button>
         </div>
       </div>
     </>
   );
 };
 
-export default RestaurantDashboard;
+export default RestaurantSideBar;
