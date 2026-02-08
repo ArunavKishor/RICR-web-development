@@ -2,7 +2,7 @@ import express from "express";
 import {
   NewContact,
   GetAllRestaurants,
-} from "../controllers/publicControlller.js";
+} from "../controllers/publicController.js";
 
 const router = express.Router();
 
