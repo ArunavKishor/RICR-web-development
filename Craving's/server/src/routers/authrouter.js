@@ -5,7 +5,7 @@ import {
   UserLogout,
   UserGenOTP,
   UserVerifyOtp,
-  UserForgetPassword,
+  UserForgetPassword
 } from "../controllers/authController.js";
 import { OtpProtect } from "../middlewares/authMiddleware.js";
 
@@ -17,6 +17,6 @@ router.get("/logout", UserLogout);
 
 router.post("/genOtp", UserGenOTP);
 router.post("/verifyOtp", UserVerifyOtp);
-router.post("/forgetPasword", OtpProtect, UserForgetPassword);
+router.post("/forgetPasword",OtpProtect,UserForgetPassword)
 
 export default router;
