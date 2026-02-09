@@ -232,7 +232,7 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="w-full mt-3 px-4 py-2 bg-orange-600  rounded-md hover:bg-orange-700 transition duration-300 font-medium">
+                  <button className="w-full mt-3 px-4 py-2 bg-orange-600 text rounded-md hover:bg-orange-700 transition duration-300 font-medium">
                     Add to Cart
                   </button>
                 </div>
