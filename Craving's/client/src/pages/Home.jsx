@@ -93,7 +93,7 @@ const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-red from-orange-500 to-orange-600 text-white py-20">
+      <section className="relative  bg-gradient-to-red from-orange-500 to-orange-600 py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
