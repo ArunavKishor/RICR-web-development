@@ -114,7 +114,7 @@ const Home = () => {
                 </button>
                 <button
                   onClick={() => navigate("/contact")}
-                  className="px-8 py-3 bg-orange-700 text-white font-semibold rounded-lg hover:bg-orange-800 transition duration-300 border-2 border-white"
+                  className="px-8 py-3 bg-orange-700  font-semibold rounded-lg hover:bg-orange-800 transition duration-300 border-2 border-white"
                 >
                   Contact Us
                 </button>
@@ -232,7 +232,7 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="w-full mt-3 px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition duration-300 font-medium">
+                  <button className="w-full mt-3 px-4 py-2 bg-orange-600  rounded-md hover:bg-orange-700 transition duration-300 font-medium">
                     Add to Cart
                   </button>
                 </div>
@@ -290,7 +290,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-red from-orange-500 to-orange-600 text-white">
+      <section className="py-16 bg-gradient-to-red from-orange-500 to-orange-600 ">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Order?
