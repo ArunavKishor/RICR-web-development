@@ -51,7 +51,6 @@ const Contact = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Post your Query
             </h1>
-          
           </div>
 
           {/* Form Container */}

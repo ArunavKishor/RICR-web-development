@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const UserTransaction = () => {
-  return (
-    <div>UserTransaction</div>
-  )
-}
+  return <div>UserTransaction</div>;
+};
 
-export default UserTransaction
+export default UserTransaction;
