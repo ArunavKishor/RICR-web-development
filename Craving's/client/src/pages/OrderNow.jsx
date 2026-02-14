@@ -24,6 +24,7 @@ const OrderNow = () => {
 
   console.log(restaurants);
 
+  
   return (
     <>
       <div className="bg-gray-100 p-3">
