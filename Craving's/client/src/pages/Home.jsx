@@ -108,10 +108,11 @@ const Home = () => {
               <div className="flex flex-wrap gap-4 pt-4">
                 <button
                   onClick={() => navigate("/order-now")}
-                  className="px-8 py-3 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition duration-300 transform hover:scale-105"
+                  className="px-8 py-3 bg-(--primary) text-white font-semibold rounded-xl shadow-lg hover:bg-(--primary-hover) hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 "
                 >
                   Order Now
                 </button>
+
                 <button
                   onClick={() => navigate("/contact")}
                   className="px-8 py-3 text-white bg-orange-700  font-semibold rounded-lg hover:bg-orange-800 transition duration-300 border-2 border-white"
@@ -124,15 +125,15 @@ const Home = () => {
               <div className="grid grid-cols-3 gap-4 pt-8">
                 <div>
                   <p className="text-3xl font-bold">500+</p>
-                  <p >Restaurants</p>
+                  <p>Restaurants</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold">50K+</p>
-                  <p >Happy Customers</p>
+                  <p>Happy Customers</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold">24/7</p>
-                  <p >Support</p>
+                  <p>Support</p>
                 </div>
               </div>
             </div>
