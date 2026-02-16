@@ -108,7 +108,7 @@ const Home = () => {
               <div className="flex flex-wrap gap-4 pt-4">
                 <button
                   onClick={() => navigate("/order-now")}
-                  className="px-8 py-3 bg-(--primary-hover) text-white font-semibold rounded-lg hover:bg-orange-50 transition duration-300 transform hover:scale-105"
+                  className="px-8 py-3 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition duration-300 transform hover:scale-105"
                 >
                   Order Now
                 </button>
