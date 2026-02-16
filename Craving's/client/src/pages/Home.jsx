@@ -101,20 +101,20 @@ const Home = () => {
               <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                 Order Your Favorite Food
               </h1>
-              <p className="text-lg md:text-xl text-orange-50">
+              <p className="text-lg md:text-xl ">
                 Discover delicious meals from the best restaurants in your area.
                 Fast delivery, great quality, amazing taste!
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <button
                   onClick={() => navigate("/order-now")}
-                  className="px-8 py-3 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition duration-300 transform hover:scale-105"
+                  className="px-8 py-3 bg-(--primary-hover) text-white font-semibold rounded-lg hover:bg-orange-50 transition duration-300 transform hover:scale-105"
                 >
                   Order Now
                 </button>
                 <button
                   onClick={() => navigate("/contact")}
-                  className="px-8 py-3 bg-orange-700  font-semibold rounded-lg hover:bg-orange-800 transition duration-300 border-2 border-white"
+                  className="px-8 py-3 text-white bg-orange-700  font-semibold rounded-lg hover:bg-orange-800 transition duration-300 border-2 border-white"
                 >
                   Contact Us
                 </button>
@@ -124,15 +124,15 @@ const Home = () => {
               <div className="grid grid-cols-3 gap-4 pt-8">
                 <div>
                   <p className="text-3xl font-bold">500+</p>
-                  <p className="text-orange-50">Restaurants</p>
+                  <p >Restaurants</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold">50K+</p>
-                  <p className="text-orange-50">Happy Customers</p>
+                  <p >Happy Customers</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold">24/7</p>
-                  <p className="text-orange-50">Support</p>
+                  <p >Support</p>
                 </div>
               </div>
             </div>
