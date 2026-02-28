@@ -30,7 +30,7 @@ const RestaurantDisplayMenu = () => {
 
   const handleCleratCart = () => {
     setCart(null);
-    setCartFlag([]); 
+    setCartFlag([]);
     localStorage.removeItem("cart");
   };
 
