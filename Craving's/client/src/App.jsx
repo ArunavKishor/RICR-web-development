@@ -31,7 +31,6 @@ const App = () => {
           <Route path="/resturant-dashboard" element={<ResturantDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/order-now" element={<OrderNow />} />
-
         </Routes>
       </BrowserRouter>
     </>
