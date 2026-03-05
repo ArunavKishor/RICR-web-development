@@ -2,18 +2,17 @@
 
 :root {
   /* primary */
-  --primary: #E23744;          /* Zomato red */
-  --primary-hover: #FF6F6F;
-  
-  /* secondary */
-  --secondary: #FF6F6F;
-  --secondary-hover: #FADADD;
-  
-  /* text */
-  --text: #1C1C1C;             /* Zomato dark text */
-  
-  /* background */
-  --background: #FFFFFF;
-  --accent: #F8F8F8;
-}
+  --primary: #e23744; /* Zomato red */
+  --primary-hover: #ff6f6f;
 
+  /* secondary */
+  --secondary: #ff6f6f;
+  --secondary-hover: #fadadd;
+
+  /* text */
+  --text: #1c1c1c; /* Zomato dark text */
+
+  /* background */
+  --background: #ffffff;
+  --accent: #f8f8f8;
+}
